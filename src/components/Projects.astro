@@ -1,0 +1,41 @@
+---
+const PROJECTS = [
+  {
+    title: 'Gymlink',
+    date: 'January 2024 - March 2024',
+    description: 'App for managing gyms',
+    link: 'https://www.gymlink.tech',
+    tags: ['HTML', 'CSS', 'JAVASCRIPT', 'REACT', 'TAILWIND'],
+    image: '/src/components/img/mockupgymlink.png',
+  },
+  {
+    title: 'eMeasure',
+    date: 'May 2024 - Today',
+    description: 'App for measure grass',
+    link: '',
+    tags: ['DART', 'FLUTTER'],
+    image: '',
+  }
+]
+---
+
+
+{
+  PROJECTS.map(({title, description, tags, link, date, image}) => (
+    <article>
+      <h3>{title}</h3>
+      <p>{date}</p>
+      <p>{description}</p>
+      <ul class="flex flex-row gap-2">
+        {
+          tags.map(tag => (
+            <li>{tag}</li>
+          ))
+        }
+      </ul>
+      <img src={image} alt="screenshot of landing page" />
+    </article>
+  ))
+}
+
+

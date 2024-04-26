@@ -1,0 +1,32 @@
+---
+const EDUCATION = [
+  {
+    title: 'Foundations of Computer Science - Holberton School',
+    date: 'June 2023 - March 2024',
+    description: '9 month bootcamp with the benefit of a great campus and staff. We learned from the basics programming in C during 3 months to build a solid foundation where we could learn Python and SQL much faster, to finish the last 3 months learning JS, Node and creating an awesome final project in teams.',
+  },
+  {
+    title: 'Art and Design of Videogames - BIOS',
+    date: 'March 2020 - September 2021',
+    description: '2 year course about designing and making the art for a videogame. From creating 2D characters to 3D (using 3DS Max), writing the story, designing the scenery and the mechanics. We finished the first year developing a 2D videogame making team with students of Game development.',
+  },
+  {
+    title: 'Degree in Industrial Design - UdelaR',
+    date: 'March 2019 - March 2020',
+    description: 'We learned the basics of the design concepts from the most abstract stuff to build something real.',
+  }
+]
+
+import EducationItem from "./EducationItem.astro"
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700">
+  {
+    EDUCATION.map(education => (
+    <li>
+      <EducationItem {...education}/>
+    </li>
+    ))
+  }
+</ol>
+
