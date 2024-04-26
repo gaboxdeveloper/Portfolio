@@ -1,20 +1,48 @@
 ---
+import Flutter from "./icons/Flutter.astro"
+import React from "./icons/React.astro"
+import Tailwind from "./icons/Tailwind.astro"
+import Dart from "./icons/Dart.astro"
+
+const TAGS = {
+  REACT: {
+    name: 'React.js',
+    icon: React,
+    class: 'bg-gray-800',
+  },
+  TAILWIND: {
+    name: 'Tailwind CSS',
+    icon: Tailwind,
+    class: 'bg-blue-900/40 text-white',
+  },
+  FLUTTER: {
+    name: 'Flutter',
+    icon: Flutter,
+    class: 'bg-white text-blue-400',
+  },
+  DART: {
+    name: 'Dart',
+    icon: Dart,
+    class: 'bg-white text-blue-400',
+  },
+}
+
 const PROJECTS = [
   {
     title: 'Gymlink',
     date: 'January 2024 - March 2024',
     description: 'App for managing gyms',
     link: 'https://www.gymlink.tech',
-    tags: ['HTML', 'CSS', 'JAVASCRIPT', 'REACT', 'TAILWIND'],
-    image: '/src/components/img/mockupgymlink.png',
+    tags: [TAGS.REACT, TAGS.TAILWIND],
+    image: '/src/components/img/mockupgymlink.jpg',
   },
   {
     title: 'eMeasure',
     date: 'May 2024 - Today',
     description: 'App for measure grass',
     link: '',
-    tags: ['DART', 'FLUTTER'],
-    image: '',
+    tags: [TAGS.FLUTTER, TAGS.DART],
+    image: '/src/components/img/mockupgymlink.jpg',
   }
 ]
 ---
@@ -22,18 +50,23 @@ const PROJECTS = [
 
 {
   PROJECTS.map(({title, description, tags, link, date, image}) => (
-    <article>
-      <h3>{title}</h3>
-      <p>{date}</p>
+    <article class="mt-10">
+      <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+      <p class="text-lg mb-4 text-pretty">{date}</p>
       <p>{description}</p>
-      <ul class="flex flex-row gap-2">
+      <img class="my-4 rounded shadow-2xl shadow-white/15" src={image} alt="screenshot of landing page" />
+      <ul class="flex flex-row gap-x-2">
         {
-          tags.map(tag => (
-            <li>{tag}</li>
+          tags.map((tag) => (
+            <li>
+              <span class={`flex items-center px-2 gap-2 rounded-full my-4 ${tag.class}`}>
+                <tag.icon />
+                {tag.name}
+              </span>
+            </li>
           ))
         }
       </ul>
-      <img src={image} alt="screenshot of landing page" />
     </article>
   ))
 }
