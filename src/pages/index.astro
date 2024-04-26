@@ -9,6 +9,7 @@ import EducationIcon from "../components/icons/EducationIcon.astro";
 import Education from "../components/Education.astro";
 import CodeIcon from "../components/icons/Code.astro";
 import Projects from "../components/Projects.astro";
+import ArrowUp from "../components/icons/ArrowUp.astro";
 ---
 
 <Layout
@@ -17,22 +18,17 @@ import Projects from "../components/Projects.astro";
 >
 	<main class="px-10">
 		<section class="w-full md:w-[650px] lg:w-[720px] xl:w-[1000px] mx-auto pt-20 pb-20 lg:pt-60 lg:pb-40">
-			<img
-				class="rounded-full w-20 h-20 mb-5"
-				src="/img/micara.webp"
-				alt="personal picture"
-			/>
-			<h1
-				class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-2 pb-5 lg:pb-10"
-			>
-				Hey, I'm Gabriel <a
-					href="https://www.linkedin.com/in/gabriel-rossy-baptista-y-vedia/"
-					class="flex justify-center items-center"
-					><Badge>Available for hire</Badge></a>
+			<h1	class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row items-center gap-x-2 pb-5 ">
+				<img
+					class="rounded-full w-20 h-20"
+					src="/img/profilephoto.webp"
+					alt="personal picture"
+				/>
+				Hey, I'm Gabriel <a href="https://www.linkedin.com/in/gabriel-rossy-baptista-y-vedia/" class="flex justify-center items-center"><Badge>Available for hire</Badge></a>
 			</h1>
 			<h2 class="text-lg lg:text-2xl text-wrap lg:max-w-[1120px]">
 				<span class="text-yellow-200/90">Junior Web Developer</span> from <span
-					class="text-blue-200">Montevideo, Uruguay🇺🇾</span>. I like to do mobile apps with <span class="text-blue-500/90">Flutter</span>.
+					class="text-blue-200">Montevideo, Uruguay</span>. My passions are creating apps with <span class="text-blue-500/90">Flutter</span>, webpages with Astro/React and videogames.
 			</h2>
 			<ul class="flex gap-4 my-4 flex-wrap">
 				<li>
@@ -68,6 +64,9 @@ import Projects from "../components/Projects.astro";
 				<CodeIcon class="size-6 md:size-7" />Projects
 			</h2>
 			<Projects />
+		</section>
+		<section class="w-full md:w-[650px] lg:w-[720px] xl:w-[1000px] mx-auto flex justify-center ">
+			<a href="#"><ArrowUp class="size-10 transition hover:scale-125"/></a>
 		</section>
 	</main>
 </Layout>
