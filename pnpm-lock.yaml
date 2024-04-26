@@ -14,6 +14,9 @@ dependencies:
   '@fontsource-variable/onest':
     specifier: ^5.0.3
     version: 5.0.3
+  '@fontsource/onest':
+    specifier: ^5.0.3
+    version: 5.0.4
   astro:
     specifier: ^4.5.16
     version: 4.5.16(typescript@5.4.4)
@@ -818,6 +821,10 @@ packages:
 
   /@fontsource-variable/onest@5.0.3:
     resolution: {integrity: sha512-vqeDrKg3Ysl4rOepz2N6PnFZ+/EjrmhOv9/pJ+tCn0y00ralsEsCog0xPK6T1hx8Vt70agNR4Jb9C+KWr/K3sg==}
+    dev: false
+
+  /@fontsource/onest@5.0.4:
+    resolution: {integrity: sha512-WxSyRLc4CL5qdQVAQ4o1iGMDxdGG0eeju7/F0c3j66YBaBei1d6IxCmmIDgAl2S8SlRLONh/reEEamAZ2mnNew==}
     dev: false
 
   /@isaacs/cliui@8.0.2:

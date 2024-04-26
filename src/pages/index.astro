@@ -1,54 +1,74 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Badge from '../components/Badge.astro';
-import SocialPill from '../components/SocialPill.astro';
-import LinkedinIcon from '../components/icons/LinkedinIcon.astro';
-import GithubIcon from '../components/icons/GithubIcon.astro';
-import MailIcon from '../components/icons/MailIcon.astro'
-import EducationIcon from '../components/icons/EducationIcon.astro';
-import Education from '../components/Education.astro';
-import CodeIcon from '../components/icons/Code.astro';
-import Projects from '../components/Projects.astro';
+import Layout from "../layouts/Layout.astro";
+import Badge from "../components/Badge.astro";
+import SocialPill from "../components/SocialPill.astro";
+import LinkedinIcon from "../components/icons/LinkedinIcon.astro";
+import GithubIcon from "../components/icons/GithubIcon.astro";
+import MailIcon from "../components/icons/MailIcon.astro";
+import EducationIcon from "../components/icons/EducationIcon.astro";
+import Education from "../components/Education.astro";
+import CodeIcon from "../components/icons/Code.astro";
+import Projects from "../components/Projects.astro";
 ---
 
-<Layout 
+<Layout
 	title="Gabriel's portfolio - Web Developer"
 	icon="/src/components/img/micara.jpeg"
-	>
+>
 	<main class="px-10">
-		<section class="w-full lg:w-[740px] mx-auto pt-20 pb-20 lg:pt-60 lg:pb-40">
-			<img class="rounded-full w-20 h-20 mb-5" src="/src/components/img/micara.jpeg" alt="gabo photo">
-			<h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-2 pb-5 lg:pb-10">Hey, I'm Gabriel <a href="https://www.linkedin.com/in/gabriel-rossy-baptista-y-vedia/" class="flex justify-center items-center"><Badge>Available for hire</Badge></a></h1>
-			<h2 class="text-lg lg:text-2xl text-wrap max-w-[700px]"><span class="text-yellow-200/90">Junior Web Developer</span> from <span class="text-blue-200">Montevideo, Uruguay🇺🇾</span>. I like to do mobile apps with <span class="text-blue-500/90">Flutter</span>.</h2>
-			
+		<section class="w-full md:w-[650px] lg:w-[720px] xl:w-[1000px] mx-auto pt-20 pb-20 lg:pt-60 lg:pb-40">
+			<img
+				class="rounded-full w-20 h-20 mb-5"
+				src="/src/components/img/micara.jpeg"
+				alt="gabo photo"
+			/>
+			<h1
+				class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-2 pb-5 lg:pb-10"
+			>
+				Hey, I'm Gabriel <a
+					href="https://www.linkedin.com/in/gabriel-rossy-baptista-y-vedia/"
+					class="flex justify-center items-center"
+					><Badge>Available for hire</Badge></a>
+			</h1>
+			<h2 class="text-lg lg:text-2xl text-wrap lg:max-w-[1120px]">
+				<span class="text-yellow-200/90">Junior Web Developer</span> from <span
+					class="text-blue-200">Montevideo, Uruguay🇺🇾</span
+				>. I like to do mobile apps with <span class="text-blue-500/90">Flutter</span>.
+			</h2>
 			<ul class="flex gap-4 my-4 flex-wrap">
 				<li>
-					<SocialPill href="https://www.linkedin.com/in/gabriel-rossy-baptista-y-vedia/">
-						<LinkedinIcon class="size-5 md:size-6"/>
+					<SocialPill
+						href="https://www.linkedin.com/in/gabriel-rossy-baptista-y-vedia/"
+					>
+						<LinkedinIcon class="size-5 md:size-6" />
 						LinkedIn
 					</SocialPill>
 				</li>
 				<li>
 					<SocialPill href="https://github.com/gaboxdeveloper">
-						<GithubIcon class="size-5 md:size-6"/>
+						<GithubIcon class="size-5 md:size-6" />
 						GitHub
 					</SocialPill>
 				</li>
 				<li>
-					<SocialPill> 
-						<MailIcon class="size-5 md:size-6"/>
+					<SocialPill>
+						<MailIcon class="size-5 md:size-6" />
 						grossy.sjb@gmail.com
 					</SocialPill>
 				</li>
 			</ul>
 		</section>
-		<section id="education" class="w-full lg:w-[740px] mx-auto py-10 lg:py-20">
-			<h2 class="flex gap-x-2 items-center justify text-3xl font-semibold mb-6"><EducationIcon class="size-6 md:size-7" />Education</h2>
+		<section id="education" class="w-full md:w-[650px] lg:w-[720px] xl:w-[1000px] mx-auto py-10 lg:py-20">
+			<h2 class="flex gap-x-2 items-center justify text-3xl font-semibold mb-6">
+				<EducationIcon class="size-6 md:size-7" />Education
+			</h2>
 			<Education />
 		</section>
-		<section id="projects" class="w-full lg:w-[740px] mx-auto py-10 lg:py-20">
-			<h2 class="flex gap-x-2 items-center justify text-3xl font-semibold mb-6"><CodeIcon class="size-6 md:size-7" />Projects</h2>
-			<Projects>
+		<section id="projects" class="w-full md:w-[650px] lg:w-[720px] xl:w-[1000px] mx-auto py-10 lg:py-20">
+			<h2 class="flex gap-x-2 items-center justify text-3xl font-semibold mb-6">
+				<CodeIcon class="size-6 md:size-7" />Projects
+			</h2>
+			<Projects />
 		</section>
 	</main>
 </Layout>
