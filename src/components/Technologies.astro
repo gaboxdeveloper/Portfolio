@@ -1,0 +1,66 @@
+---
+import Flutter from "./icons/Flutter.astro";
+import React from "./icons/React.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import Dart from "./icons/Dart.astro";
+import Python from "./icons/Python.astro";
+import Js from "./icons/Js.astro";
+import Astros from "./icons/Astros.astro";
+import Figma from "./icons/Figma.astro";
+
+const TAGS = {
+  REACT: {
+    name: "React",
+    icon: React,
+    class: "bg-gray-800",
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    icon: Tailwind,
+    class: "bg-sky-900 text-white",
+  },
+  FLUTTER: {
+    name: "Flutter",
+    icon: Flutter,
+    class: "bg-white text-blue-400",
+  },
+  DART: {
+    name: "Dart",
+    icon: Dart,
+    class: "bg-white text-blue-800",
+  },
+  PYTHON: {
+    name: "Python",
+    icon: Python,
+    class: "bg-green-700 text-white",
+  },
+  JS: {
+    name: "JavaScript",
+    icon: Js,
+    class: "bg-white text-black",
+  },
+  ASTRO: {
+    name: "Astro",
+    icon: Astros,
+    class: "bg-gray-800 text-white",
+  },
+  FIGMA: {
+    name: "Figma",
+    icon: Figma,
+    class: "bg-white text-black",
+  },
+};
+
+const ICONS = [TAGS.JS, TAGS.ASTRO, TAGS.REACT, TAGS.PYTHON, TAGS.TAILWIND, TAGS.DART, TAGS.FLUTTER, TAGS.FIGMA];
+---
+
+<article class="flex justify-between flex-wrap my-8">
+  {
+    ICONS.map(e => (
+      <span class={`flex items-center px-2 gap-2 rounded-full ${e.class}`}>
+        <e.icon />
+        {e.name}
+      </span>
+    ))
+  }
+</article>

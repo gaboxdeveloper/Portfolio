@@ -10,11 +10,12 @@ import Education from "../components/Education.astro";
 import CodeIcon from "../components/icons/Code.astro";
 import Projects from "../components/Projects.astro";
 import ArrowUp from "../components/icons/ArrowUp.astro";
+import Technologies from "../components/Technologies.astro";
 ---
 
 <Layout
 	title="Gabriel's portfolio - Web Developer"
-	icon="/src/components/img/micara.jpeg"
+	icon="/img/profilephoto.webp"
 >
 	<main class="px-10">
 		<section class="w-full md:w-[650px] lg:w-[720px] xl:w-[1000px] mx-auto pt-20 pb-20 lg:pt-60 lg:pb-40">
@@ -46,7 +47,7 @@ import ArrowUp from "../components/icons/ArrowUp.astro";
 					</SocialPill>
 				</li>
 				<li>
-					<SocialPill>
+					<SocialPill href=`mailto:${'grossy.sjb@gmail.com'}`>
 						<MailIcon class="size-5 md:size-6" />
 						grossy.sjb@gmail.com
 					</SocialPill>
@@ -64,6 +65,13 @@ import ArrowUp from "../components/icons/ArrowUp.astro";
 				<CodeIcon class="size-6 md:size-7" />Projects
 			</h2>
 			<Projects />
+		</section>
+		<section id="technologies" class="w-full md:w-[650px] lg:w-[720px] xl:w-[1000px] mx-auto py-10 lg:py-20">
+			<h2 class="flex gap-x-2 items-center justify text-3xl xl:text-4xl font-semibold mb-6">
+				<CodeIcon class="size-6 md:size-7" />Technologies
+			</h2>
+			<Technologies />
+			<p class="text-white">This portfolio was built using mainly Astro and React to make the header</p>
 		</section>
 		<section class="w-full md:w-[650px] lg:w-[720px] xl:w-[1000px] mx-auto flex justify-center ">
 			<a href="#"><ArrowUp class="size-10 transition hover:scale-125"/></a>
