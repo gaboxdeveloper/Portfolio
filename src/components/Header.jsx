@@ -6,7 +6,7 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.scrollY;
-      const maxOpacityScroll = 250; // Cambia este valor según tus necesidades
+      const maxOpacityScroll = 150; // Cambia este valor según tus necesidades
 
       // Calcula el nivel de opacidad basado en la posición de desplazamiento
       const newOpacity = Math.min(1, scrolled / maxOpacityScroll);
@@ -30,7 +30,7 @@ const Header = () => {
         transition: 'background-color 0.3s ease, height 0.3s ease, box-shadow 0.3s ease',
       }}
     >
-      <nav className="flex flex-row gap-x-10 lg:gap-x-20">
+      <nav className="flex flex-row gap-x-5 md:gap-x-20">
       <a
           className="hover:scale-110 transition"
           style={{ opacity: 1 }}
