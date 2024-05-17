@@ -40,7 +40,6 @@ import Technologies from "../components/Technologies.astro";
 				<span class="text-blue-200">Montevideo, Uruguay</span>. I love creating
 				mobile apps with <span class="text-blue-500/90">Flutter</span> and webpages
 				with Astro/React
-				
 			</h2>
 			<ul class="flex gap-4 my-4 flex-wrap">
 				<li>
@@ -64,9 +63,17 @@ import Technologies from "../components/Technologies.astro";
 					</SocialPill>
 				</li>
 				<li>
-					<SocialPill href="/about">
+					<a
+						href="/about"
+						class="flex justify-center items-center
+						gap-x-2 py-2 px-2 md:py-2 md:px-4
+						text-sm xl:text-base
+						rounded-full border
+						border-white/30 bg-white/10
+						hover:bg-white/20 hover:scale-105 transition"
+					>
 						More about me
-					</SocialPill>
+					</a>
 				</li>
 			</ul>
 		</section>
