@@ -36,7 +36,7 @@ const PROJECTS = [
       <p class="inline text-gray-400">Find more information about the project here: </p>
       <a class="text-blue-400 underline" target="_blank" rel="noopener noreferrer" href={link}>{link}</a>
       <img class="my-4 rounded shadow-2xl shadow-white/15 md:max-w-[500px] lg:max-w-[570px] xl:max-w-[800px] mx-auto" src={image} alt="Screenshot of landing page" />
-      <ul class="flex flex-row gap-x-2">
+      <ul class="flex flex-row flex-wrap gap-x-2">
         {
           tags.map((tag) => (
             <li>
