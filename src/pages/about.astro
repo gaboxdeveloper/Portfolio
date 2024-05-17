@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Badge from "../components/Badge.astro";
+import SocialPill from "../components/SocialPill.astro";
+import LinkedinIcon from "../components/icons/LinkedinIcon.astro";
+import GithubIcon from "../components/icons/GithubIcon.astro";
+import MailIcon from "../components/icons/MailIcon.astro";
+import ArrowUp from "../components/icons/ArrowUp.astro";
+---
+
+<Layout
+	title="Gabriel's portfolio - Web Developer"
+	icon="/img/profilephoto.webp"
+>
+	<main class="px-10 mb-auto">
+		<section class="w-full md:w-[650px] lg:w-[720px] xl:w-[1000px] mx-auto pt-20 pb-20 lg:pt-60 lg:pb-40">
+      <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold mb-4 text-pretty text-blue-200">My name is Gabriel Rossy</h2>
+			<p class="text-md lg:text-xl text-wrap lg:max-w-[1120px]">
+				A little about me...I began my journey into programming in 2022 during my travels in New Zealand. During this period, I discovered my passion for logical challenges, leading me to transition from studying Design (Art of videogames, Industrial Design and Graphic Design) to programming. Having experienced both sides of a project, I have developed a comprehensive perspective on collaborative work with fellow programmers. I tend to be a perfectionist, always seeking ways to optimize and continuously improve what I do . I am recognized for my calm personality and serious approach to work, contributing to a professional and effective work environment.
+        <br>
+        <br>
+        Right now, I'm really into programming. My goal is to land a gig in that field and be a total pro to achieve my goals, both material and personal. I'm really into front-end development, but I know with AI lurking around, I'm ready and excited to learn other tech stuff.
+        <br>
+        <br>
+        Speaking of what stands out about me at work: I'm super punctual, take things seriously (professional, disciplined, committed), pay attention to details, and I'm organized. Personally, I'm empathetic, honest, and have a non-intrusive sense of humor.
+			</p>
+			<ul class="flex gap-4 my-4 flex-wrap">
+				<li>
+					<SocialPill
+						href="https://www.linkedin.com/in/gabriel-rossy-baptista-y-vedia/"
+					>
+						<LinkedinIcon class="size-5 md:size-6" />
+						LinkedIn
+					</SocialPill>
+				</li>
+				<li>
+					<SocialPill href="https://github.com/gaboxdeveloper">
+						<GithubIcon class="size-5 md:size-6" />
+						GitHub
+					</SocialPill>
+				</li>
+				<li>
+					<SocialPill href=`mailto:${'grossy.sjb@gmail.com'}`>
+						<MailIcon class="size-5 md:size-6" />
+						grossy.sjb@gmail.com
+					</SocialPill>
+				</li>
+			</ul>
+		</section>
+	</main>
+</Layout>

@@ -34,28 +34,28 @@ const Header = () => {
       <a
           className="hover:scale-110 transition"
           style={{ opacity: 1 }}
-          href="#"
+          href="/"
         >
           Home
         </a>
         <a
           className="hover:scale-110 transition"
           style={{ opacity: 1 }}
-          href="#education"
+          href="/#education"
         >
           Education
         </a>
         <a
           className="hover:scale-110 transition"
           style={{ opacity: 1 }}
-          href="#projects"
+          href="/#projects"
         >
           Projects
         </a>
         <a
           className="hover:scale-110 transition"
           style={{ opacity: 1 }}
-          href="#technologies"
+          href="/#technologies"
         >
           Technologies
         </a>
