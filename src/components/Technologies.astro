@@ -7,52 +7,55 @@ import Python from "./icons/Python.astro";
 import Js from "./icons/Js.astro";
 import Astros from "./icons/Astros.astro";
 import Figma from "./icons/Figma.astro";
+import Docker from "./icons/Docker.astro";
+import Git from "./icons/Git.astro";
 
 export const TAGS = {
   REACT: {
     name: "React",
     icon: React,
-    class: "bg-gray-800",
   },
   TAILWIND: {
     name: "Tailwind CSS",
     icon: Tailwind,
-    class: "bg-gray-800",
   },
   FLUTTER: {
     name: "Flutter",
     icon: Flutter,
-    class: "bg-gray-800",
   },
   DART: {
     name: "Dart",
     icon: Dart,
-    class: "bg-gray-800",
   },
   JS: {
     name: "JavaScript",
     icon: Js,
-    class: "bg-gray-800",
   },
   ASTRO: {
     name: "Astro",
     icon: Astros,
-    class: "bg-gray-800",
   },
   FIGMA: {
     name: "Figma",
     icon: Figma,
-    class: "bg-gray-800",
   },
+  DOCKER: {
+    name: "Docker",
+    icon: Docker,
+  },
+  GIT: {
+    name: "Git",
+    icon: Git,
+  }
 };
 
-const ICONS = [TAGS.JS, TAGS.ASTRO, TAGS.REACT, TAGS.TAILWIND, TAGS.DART, TAGS.FLUTTER, TAGS.FIGMA];
+const ICONS = [TAGS.JS, TAGS.ASTRO, TAGS.REACT, TAGS.TAILWIND, TAGS.DART, TAGS.FLUTTER, TAGS.GIT, TAGS.DOCKER, TAGS.FIGMA];
 ---
 
 <article class="flex justify-between flex-wrap my-8">
   {
     ICONS.map(e => (
-      <span class={`flex items-center px-2 gap-2 rounded-full my-2 ${e.class}`}>
+      <span class={'flex items-center px-2 gap-2 rounded-full my-2 bg-gray-800'}>
         <e.icon />
         {e.name}
       </span>
