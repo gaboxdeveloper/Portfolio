@@ -34,7 +34,7 @@ const Header = () => {
       <a
           className="hover:scale-110 transition"
           style={{ opacity: 1 }}
-          href="/"
+          href="/#"
         >
           Home
         </a>
@@ -51,13 +51,6 @@ const Header = () => {
           href="/#projects"
         >
           Projects
-        </a>
-        <a
-          className="hover:scale-110 transition"
-          style={{ opacity: 1 }}
-          href="/#technologies"
-        >
-          Technologies
         </a>
       </nav>
     </header>
