@@ -1,25 +1,35 @@
 ---
 import { TAGS } from "./Technologies.astro";
+import { Image } from "astro:assets";
+import image from "../../public/img/mockupgymlink.jpg";
 
 const PROJECTS = [
   {
-    title: "GYMLINK",
+    title: "eTool™",
+    date: "September 2025 - Today",
+    description:
+      "eTool is a mobile-only application that I designed and developed to support the management of rural establishments. The platform allows users to register paddocks, pasture types, and livestock, and to track key indicators such as pasture height and dry matter availability. By combining real field data with simple projections, eTool helps producers and stakeholders make better-informed decisions about grazing, productivity, and resource planning.",
+    role: "Creator and Product Lead. Responsible for ideation, problem definition, user research, product strategy, UX/UI design, and development. The process of development was carried out collaboratively in a two-person team.",
+    link: "",
+    tags: [
+      TAGS.DOCKER,
+      TAGS.GIT,
+      TAGS.FIGMA,
+      TAGS.JS,
+      TAGS.REACTNATIVE,
+      TAGS.TAILWIND,
+    ],
+    image: null,
+  },
+  {
+    title: "GymLink",
     date: "January 2024 - March 2024",
     description:
       "Gymlink is a comprehensive gym management application that fosters unity among gym administrators, trainers, and clients. This platform serves as a centralized hub, streamlining communication and coordination to enhance the overall gym experience. Admins can efficiently manage operations, trainers can connect with clients more effectively, and clients can access personalized routines seamlessly. Gymlink brings together the key stakeholders in the gym environment, promoting a collaborative and unified approach to fitness management.",
     role: "I participated in a 5-person team developing a gym management system for administrators, trainers, and clients. Throughout the process, I  learned ReactJS, Tailwind, and Figma for front-end development and UX/UI design. Additionally, I contributed to the development of the landing page.",
-    link: "https://www.gymlink.tech",
-    tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.FIGMA],
-    image: "/img/mockupgymlink.jpg",
-  },
-  {
-    title: "eMeasure",
-    date: "May 2024 - Today",
-    description: "IN PROGRESS",
-    role: "This app is a custom app for a client. It's goal is to streamline the pasture measurement process for livestock farms, completely eliminating the need for a notebook by digitizing everything on a mobile device. This will facilitate information about the measurment intantly, showing you graphics and useful statistics. During this process, I'm learning Flutter as the main framework (since it's a 100% mobile app).",
-    link: "",
-    tags: [TAGS.FLUTTER, TAGS.DART],
-    image: "",
+    link: "https://gymlink.vercel.app/",
+    tags: [TAGS.GIT, TAGS.FIGMA, TAGS.JS, TAGS.REACT, TAGS.TAILWIND],
+    image: image,
   },
 ];
 ---
@@ -28,14 +38,14 @@ const PROJECTS = [
   PROJECTS.map(({ title, description, role, tags, link, date, image }) => (
     <article class="mt-10">
       <h3
-        class="text-2xl font-semibold text-yellow-200 mb-2
+        class="text-2xl font-semibold text-blue-500 mb-2
                   xl:text-3xl"
       >
         {title}
       </h3>
       <p class="text-lg font-semibold mb-4 text-pretty text-blue-200">{date}</p>
-      <p class="text-white mb-4 text-justify">{role}</p>
-      <p class="text-white text-justify">{description}</p>
+      <p class="text-gray-400 font-bold mb-4 text-justify">{role}</p>
+      <p class="text-white font-normal mb-4 text-justify">{description}</p>
       <p class="inline text-gray-400">
         Find more information about the project here:{" "}
       </p>
@@ -52,17 +62,21 @@ const PROJECTS = [
       >
         {title}
       </a>
-      <img
-        class="my-4 rounded shadow-2xl shadow-white/15 md:max-w-[500px] lg:max-w-[570px] xl:max-w-[800px] mx-auto"
-        src={image}
-        alt="Screenshot of landing page"
-      />
+      {image && (
+        <Image
+          class="my-4 rounded shadow-2xl shadow-white/15 md:max-w-[500px] lg:max-w-[570px] xl:max-w-[800px] mx-auto"
+          src={image}
+          width={800}
+          height={480}
+          alt={`Screenshot of ${title}`}
+        />
+      )}
       <ul class="flex flex-row flex-wrap gap-x-2">
         {tags.map((tag) => (
           <li>
             <span
               class={
-                "flex items-center px-2 gap-2 rounded-full my-4 bg-gray-800"
+                "flex items-center pl-2 pr-4 gap-2 rounded-full my-4 bg-gray-800"
               }
             >
               <tag.icon />

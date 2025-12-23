@@ -1,9 +1,6 @@
 ---
-import Flutter from "./icons/Flutter.astro";
 import React from "./icons/React.astro";
 import Tailwind from "./icons/Tailwind.astro";
-import Dart from "./icons/Dart.astro";
-import Python from "./icons/Python.astro";
 import Js from "./icons/Js.astro";
 import Astros from "./icons/Astros.astro";
 import Figma from "./icons/Figma.astro";
@@ -15,17 +12,13 @@ export const TAGS = {
     name: "React",
     icon: React,
   },
+  REACTNATIVE: {
+    name: "React Native",
+    icon: React,
+  },
   TAILWIND: {
     name: "Tailwind CSS",
     icon: Tailwind,
-  },
-  FLUTTER: {
-    name: "Flutter",
-    icon: Flutter,
-  },
-  DART: {
-    name: "Dart",
-    icon: Dart,
   },
   JS: {
     name: "JavaScript",
@@ -48,17 +41,3 @@ export const TAGS = {
     icon: Git,
   }
 };
-
-const ICONS = [TAGS.JS, TAGS.ASTRO, TAGS.REACT, TAGS.TAILWIND, TAGS.DART, TAGS.FLUTTER, TAGS.GIT, TAGS.DOCKER, TAGS.FIGMA];
----
-
-<article class="flex justify-between flex-wrap my-8">
-  {
-    ICONS.map(e => (
-      <span class={'flex items-center px-2 gap-2 rounded-full my-2 bg-gray-800'}>
-        <e.icon />
-        {e.name}
-      </span>
-    ))
-  }
-</article>
