@@ -1,0 +1,23 @@
+---
+export interface Props {
+	ratio?: string;
+	label: string;
+	class?: string;
+	grayscale?: boolean;
+}
+const { ratio = '9/19', label, class: className = '', grayscale = true } = Astro.props;
+---
+
+<div
+	class={`flex items-end justify-start border border-white/[0.16] bg-panel p-3 ${className}`}
+	style={`aspect-ratio: ${ratio};`}
+>
+	<span
+		class:list={[
+			'text-[10px] font-semibold uppercase tracking-[0.14em] text-silver-muted',
+			grayscale && 'grayscale-photo',
+		]}
+	>
+		{label}
+	</span>
+</div>

@@ -1,54 +1,43 @@
-# Astro Starter Kit: Basics
+# RossyStudio — sitio web
 
-```sh
-npm create astro@latest -- --template basics
+Sitio institucional construido con [Astro](https://astro.build) + Tailwind CSS, a partir del handoff de diseño en [`design/handoff.md`](./design/handoff.md).
+
+## Desarrollo local
+
+```bash
+npm install
+npm run dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Abre `http://localhost:4321`.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Build
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm run build
+npm run preview
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Deploy en Netlify
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+1. Conectá este repositorio en Netlify (New site from Git).
+2. Build command: `npm run build` — Publish directory: `dist` (ya configurado en `netlify.toml`).
+3. Una vez deployado, andá a **Domain settings → Add a domain** y seguí las instrucciones para apuntar tu dominio propio (registros DNS `A`/`CNAME` según indique Netlify).
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Contenido pendiente (placeholders a reemplazar)
 
-## 🧞 Commands
+- **Email de contacto**: `hola@rossystudio.com` en `src/pages/contacto.astro`.
+- **Año de Ciberseguridad**: `2027`, constante `anioCiber` en `src/pages/index.astro` y `src/pages/estudio.astro`.
+- **Capturas de la app eTool**: marcos placeholder en `src/pages/index.astro` (sección eTool) y `src/pages/trabajo/etool.astro` (galería). Reemplazar los `<ImageFrame>` por `<img>` reales.
+- **Retrato del estudio**: placeholder en `src/pages/estudio.astro`.
+- **Envío real del formulario de contacto**: hoy el formulario de `src/pages/contacto.astro` solo simula el envío en el navegador (estado "enviado" con JS). Falta conectarlo a un proveedor (Formspree, Resend, etc.) cuando lo decidan.
 
-All commands are run from the root of the project, from a terminal:
+## Estructura
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- `src/layouts/Layout.astro` — layout base (meta, fuentes, fondo).
+- `src/components/` — Header, Footer, BrandMark y bloques compartidos (fila de datos, marco de imagen, CTA de cierre).
+- `src/pages/` — Home (`index.astro`), Servicios, Caso eTool (`trabajo/etool.astro`), Estudio, Contacto.
 
-## 👀 Want to learn more?
+## Créditos de diseño
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Basado en el handoff [`design/handoff.md`](./design/handoff.md) (tokens de color, tipografía Archivo, grillas y estados definidos ahí).

@@ -1,0 +1,151 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CtaClose from '../components/CtaClose.astro';
+
+const servicios = [
+	{
+		kicker: '01 — Producto',
+		title: 'PRODUCTO DE PUNTA A PUNTA',
+		desc: 'De la idea cruda a la app publicada: definición, alcance, diseño, desarrollo y release, con una sola cabeza sosteniendo la coherencia de todo el proceso.',
+		items: [
+			'Definición de alcance y roadmap',
+			'Diseño de flujos e interfaz',
+			'Desarrollo y pruebas',
+			'Publicación en tiendas',
+		],
+	},
+	{
+		kicker: '02 — Mobile',
+		title: 'APLICACIONES MÓVILES',
+		desc: 'Mi especialidad. React Native y Expo, arquitectura pensada para crecer y una experiencia que no se siente hecha a los apurones.',
+		items: [
+			'React Native · Expo',
+			'Autenticación y roles',
+			'Datos, gráficos y proyecciones',
+			'Builds y distribución (EAS)',
+		],
+	},
+	{
+		kicker: '03 — UX',
+		title: 'DISEÑO UX CON CRITERIO',
+		desc: 'Flujos, jerarquía y decisiones defendibles. Menos pantallas bonitas, más caminos que la gente completa sin preguntar nada.',
+		items: [
+			'Mapa de flujos y estados',
+			'Prototipo navegable',
+			'Sistema visual básico',
+			'Especificación para desarrollo',
+		],
+	},
+	{
+		kicker: '04 — Dirección',
+		title: 'DIRECCIÓN TÉCNICA',
+		desc: 'Para equipos que ya están construyendo y necesitan alguien que ordene el rumbo, revise decisiones y frene lo que no hay que hacer.',
+		items: [
+			'Revisión de producto y prioridades',
+			'Auditoría de decisiones técnicas',
+			'Acompañamiento del equipo',
+			'Reunión semanal fija',
+		],
+	},
+];
+
+const proceso = [
+	{ num: '01', title: 'Conversación', desc: 'Una llamada para entender el negocio y el problema real. Sin costo.' },
+	{ num: '02', title: 'Propuesta', desc: 'Alcance, etapas, plazos y precio por escrito. Lo que entra y lo que no.' },
+	{ num: '03', title: 'Construcción', desc: 'Entregas cada dos semanas, con algo usable en la mano cada vez.' },
+	{ num: '04', title: 'Release y sostén', desc: 'Publicación, medición y un período de acompañamiento acordado.' },
+];
+---
+
+<Layout
+	title="Servicios"
+	description="Cuatro formas de trabajar con RossyStudio: producto de punta a punta, aplicaciones móviles, diseño UX y dirección técnica."
+>
+	<Header />
+
+	<section class="section-pad border-b-2 border-white/[0.22] py-[6vw]">
+		<span class="text-[11px] font-semibold uppercase tracking-[0.18em] text-silver-muted">Servicios</span>
+		<h1 class="mt-3 text-[clamp(40px,9vw,158px)] font-extrabold uppercase leading-[0.85] tracking-[-0.05em]">
+			CUATRO<br />
+			FORMAS DE<br />
+			<span class="text-silver-muted">TRABAJAR</span>
+		</h1>
+		<p class="mt-8 max-w-[54ch] text-[clamp(16px,1.6vw,23px)] font-medium leading-[1.45]">
+			Ninguna es un paquete cerrado. Todas arrancan con una conversación honesta sobre qué hay que construir, qué no, y cuánto cuesta cada camino.
+		</p>
+	</section>
+
+	<section>
+		{
+			servicios.map((s, i) => (
+				<article
+					class:list={[
+						'grid',
+						i !== servicios.length - 1 && 'border-b border-white/[0.16]',
+					]}
+					style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));"
+				>
+					<div class="border-white/[0.16] p-[5vw] py-[4vw] md:border-r">
+						<span class="text-[11px] font-semibold uppercase tracking-[0.18em] text-silver-muted">{s.kicker}</span>
+						<h2 class="mt-3 text-[clamp(24px,3.2vw,40px)] font-extrabold uppercase tracking-[-0.03em]">{s.title}</h2>
+						<p class="mt-4 max-w-[48ch] text-[16px] leading-[1.6] text-ink-secondary">{s.desc}</p>
+					</div>
+					<div class="p-[5vw] py-[4vw]">
+						<div class="grid grid-cols-4 gap-2 border-b border-white/[0.16] pb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-silver-muted">
+							<span>Incluye</span>
+							<span>Stack habitual</span>
+							<span>Entregables</span>
+							<span>Formato</span>
+						</div>
+						{
+							s.items.map((item, idx) => (
+								<div
+									class:list={[
+										'py-4 text-[15px] font-semibold',
+										idx !== s.items.length - 1 && 'border-b border-white/[0.16]',
+									]}
+								>
+									{item}
+								</div>
+							))
+						}
+					</div>
+				</article>
+			))
+		}
+	</section>
+
+	<section class="section-pad border-t-2 border-white/[0.22] py-[6vw]">
+		<div class="mb-10 flex flex-wrap items-end justify-between gap-4">
+			<h2 class="text-[clamp(28px,4vw,52px)] font-extrabold uppercase tracking-[-0.035em]">CÓMO TRABAJAMOS</h2>
+			<span class="pb-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-silver-muted">Proceso</span>
+		</div>
+		<div class="grid border border-white/[0.16]" style="grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));">
+			{
+				proceso.map((p, i) => (
+					<div
+						class:list={[
+							'p-8',
+							i !== 0 && 'border-l border-white/[0.16]',
+						]}
+					>
+						<span class="text-[12px] font-extrabold text-silver-muted">{p.num}</span>
+						<h3 class="mt-2 text-[18px] font-extrabold uppercase tracking-[-0.02em]">{p.title}</h3>
+						<p class="mt-3 text-[15px] leading-[1.6] text-ink-secondary">{p.desc}</p>
+					</div>
+				))
+			}
+		</div>
+	</section>
+
+	<CtaClose
+		heading="¿CUÁL DE LAS CUATRO NECESITÁS?"
+		paragraph="Contame en qué etapa está tu proyecto y te digo, sin vueltas, cuál de estos caminos tiene más sentido."
+		primaryLabel={`Enviar consulta →`}
+		primaryHref="/contacto"
+	/>
+
+	<Footer />
+</Layout>

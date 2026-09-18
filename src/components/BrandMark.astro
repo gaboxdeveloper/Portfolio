@@ -1,0 +1,18 @@
+---
+export interface Props {
+	linkToHome?: boolean;
+}
+const { linkToHome = true } = Astro.props;
+const Tag = linkToHome ? 'a' : 'div';
+---
+
+<Tag {...linkToHome ? { href: '/' } : {}} class="flex items-center gap-2.5 shrink-0">
+	<span
+		class="flex h-[34px] w-[34px] items-center justify-center border border-white/[0.28] bg-black text-[15px] font-extrabold tracking-[-0.04em]"
+	>
+		<span class="text-ink">R</span><span class="text-silver">S</span>
+	</span>
+	<span class="text-[14px] font-extrabold uppercase tracking-[0.18em] text-ink">
+		ROSSY<span class="text-silver-muted">STUDIO</span>
+	</span>
+</Tag>

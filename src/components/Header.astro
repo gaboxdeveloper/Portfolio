@@ -1,0 +1,50 @@
+---
+import BrandMark from './BrandMark.astro';
+
+export interface Props {
+	showConsultar?: boolean;
+	sticky?: boolean;
+}
+const { showConsultar = true, sticky = true } = Astro.props;
+
+const path = Astro.url.pathname;
+const navItems = [
+	{ href: '/servicios', label: 'Servicios' },
+	{ href: '/trabajo/etool', label: 'Trabajo' },
+	{ href: '/estudio', label: 'Estudio' },
+];
+const isActive = (href: string) => path === href || (href !== '/' && path.startsWith(href));
+---
+
+<header
+	class:list={['z-20 border-b-2 border-white/[0.22] bg-base', sticky && 'sticky top-0']}
+>
+	<div class="section-pad flex items-center justify-between gap-6 py-4">
+		<BrandMark />
+		<nav class="flex flex-wrap items-center gap-x-7 gap-y-2">
+			{
+				navItems.map((item) => (
+					<a
+						href={item.href}
+						aria-current={isActive(item.href) ? 'page' : undefined}
+						class={`text-[13px] font-semibold uppercase tracking-[0.1em] transition-colors duration-150 ${
+							isActive(item.href) ? 'text-white' : 'text-silver hover:text-white'
+						}`}
+					>
+						{item.label}
+					</a>
+				))
+			}
+			{
+				showConsultar && (
+					<a
+						href="/contacto"
+						class="border border-white/[0.32] px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.14em] text-ink transition-colors duration-150 hover:bg-white/[0.08]"
+					>
+						Consultar
+					</a>
+				)
+			}
+		</nav>
+	</div>
+</header>

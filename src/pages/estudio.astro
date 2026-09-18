@@ -1,0 +1,128 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CtaClose from '../components/CtaClose.astro';
+
+const anioCiber = '2027';
+
+const principios = [
+	{
+		num: '01',
+		title: 'Primero entender, después construir',
+		desc: 'Ninguna línea de código antes de tener claro qué problema resuelve.',
+	},
+	{
+		num: '02',
+		title: 'Menos alcance, mejor ejecución',
+		desc: 'Prefiero un producto acotado que funciona a uno enorme a medio terminar.',
+	},
+	{
+		num: '03',
+		title: 'Decir lo que pienso',
+		desc: 'Si algo no tiene sentido, lo digo antes de construirlo, no después.',
+	},
+	{
+		num: '04',
+		title: 'Entregar cosas usables',
+		desc: 'Cada entrega es algo que se puede tocar, no una maqueta ni una promesa.',
+	},
+];
+---
+
+<Layout
+	title="Estudio"
+	description="Quién está detrás de RossyStudio, cómo se piensa el trabajo, y la próxima línea de Ciberseguridad."
+>
+	<Header />
+
+	<section class="section-pad border-b-2 border-white/[0.22] py-[6vw]">
+		<span class="text-[11px] font-semibold uppercase tracking-[0.18em] text-silver-muted">El estudio</span>
+		<h1 class="mt-3 text-[clamp(40px,9vw,158px)] font-extrabold uppercase leading-[0.85] tracking-[-0.05em]">
+			UNA<br />
+			PERSONA,<br />
+			<span class="text-silver-muted">UN CRITERIO</span>
+		</h1>
+	</section>
+
+	<section class="grid border-b-2 border-white/[0.22]" style="grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));">
+		<div class="border-white/[0.16] p-[5vw] md:border-r">
+			<div class="grayscale-photo flex w-[min(300px,100%)] items-end justify-start border border-white/[0.16] bg-panel p-4" style="aspect-ratio: 4/5;">
+				<span class="text-[10px] font-semibold uppercase tracking-[0.14em] text-silver-muted">Retrato: Rodrigo Rossy</span>
+			</div>
+		</div>
+		<div class="p-[5vw]">
+			<p class="text-[clamp(17px,1.9vw,26px)] font-medium leading-[1.4]">
+				RossyStudio no es una agencia chica: es la forma en que trabajo cuando puedo decidir bien.
+			</p>
+			<p class="mt-6 text-[16px] leading-[1.6] text-ink-secondary">
+				Soy Rodrigo Rossy: diseño y desarrollo aplicaciones móviles, y llevo cada proyecto de punta a punta. No reparto la responsabilidad del producto entre varias personas porque eso es, justamente, lo que quiero evitar.
+			</p>
+			<p class="mt-4 text-[16px] leading-[1.6] text-ink-secondary">
+				Trabajo en remoto desde Uruguay con clientes de distintas zonas horarias, y viajo cuando el proyecto lo pide: reuniones presenciales, visitas a las instalaciones, lo que haga falta para entender el trabajo donde realmente pasa.
+			</p>
+			<p class="mt-4 text-[16px] leading-[1.6] text-ink-secondary">
+				Cuando un proyecto necesita más manos de las que puedo poner yo, sumo especialistas puntuales y los dirijo directamente, sin agregar capas de gestión entre el cliente y el trabajo.
+			</p>
+		</div>
+	</section>
+
+	<section class="section-pad py-[6vw]">
+		<div class="mb-10 flex flex-wrap items-end justify-between gap-4">
+			<h2 class="text-[clamp(28px,4vw,52px)] font-extrabold uppercase tracking-[-0.035em]">CÓMO PIENSO EL TRABAJO</h2>
+			<span class="pb-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-silver-muted">Principios</span>
+		</div>
+		<div>
+			{
+				principios.map((p, i) => (
+					<div
+						class:list={[
+							'grid items-center gap-4 py-6',
+							i === principios.length - 1 ? 'border-b-2 border-white/[0.22]' : 'border-b border-white/[0.16]',
+						]}
+						style="grid-template-columns: 64px minmax(0,1fr) minmax(0,1.3fr);"
+					>
+						<span class="text-[12px] font-extrabold text-silver-muted">{p.num}</span>
+						<h3 class="text-[clamp(18px,2.1vw,27px)] font-extrabold uppercase tracking-[-0.02em]">{p.title}</h3>
+						<p class="text-[15px] leading-[1.6] text-ink-secondary">{p.desc}</p>
+					</div>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="section-pad pb-[6vw]">
+		<div class="grid border border-white/[0.16] bg-panel" style="grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));">
+			<div class="p-[38px]">
+				<span class="inline-block border border-white/[0.32] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-silver">
+					Próxima línea
+				</span>
+				<h3 class="mt-4 text-[clamp(24px,3vw,36px)] font-extrabold uppercase tracking-[-0.03em]">Ciberseguridad</h3>
+				<p class="mt-3 max-w-[46ch] text-[15px] leading-[1.6] text-ink-secondary">
+					Auditoría y protección de productos digitales, pensada desde el mismo criterio con el que se construyen. Quien diseñó la aplicación es quien mejor sabe dónde se rompe.
+				</p>
+				<a
+					href="/contacto"
+					class="mt-6 inline-block border border-white/[0.32] px-7 py-4 text-[13px] font-extrabold uppercase tracking-[0.14em] text-ink transition-colors duration-150 hover:bg-white/[0.08]"
+				>
+					{`Avisame cuando abra →`}
+				</a>
+			</div>
+			<div class="flex items-end justify-start p-[38px] sm:justify-end">
+				<div class="text-right">
+					<p class="text-[clamp(46px,7vw,96px)] font-extrabold leading-none tracking-[-0.035em] text-ghost">{anioCiber}</p>
+					<p class="mt-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-silver-muted">Apertura estimada</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<CtaClose
+		heading="TRABAJEMOS JUNTOS"
+		paragraph="Contame en qué estás y vemos si soy la persona indicada para construirlo."
+		primaryLabel={`Enviar consulta →`}
+		primaryHref="/contacto"
+	/>
+
+	<Footer />
+</Layout>

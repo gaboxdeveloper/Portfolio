@@ -1,0 +1,40 @@
+---
+export interface Props {
+	heading: string;
+	paragraph: string;
+	primaryLabel: string;
+	primaryHref: string;
+	secondaryLabel?: string;
+	secondaryHref?: string;
+}
+const { heading, paragraph, primaryLabel, primaryHref, secondaryLabel, secondaryHref } = Astro.props;
+---
+
+<section class="section-pad border-t-2 border-white/[0.22] py-[6.5vw]">
+	<div class="flex flex-wrap items-center justify-between gap-10">
+		<h2 class="max-w-[16ch] text-[clamp(30px,4.8vw,76px)] font-extrabold uppercase leading-[0.92] tracking-[-0.045em]">
+			{heading}
+		</h2>
+		<div class="max-w-[40ch]">
+			<p class="text-[15px] leading-[1.6] text-ink-secondary">{paragraph}</p>
+			<div class="mt-6 flex flex-wrap gap-4">
+				<a
+					href={primaryHref}
+					class="bg-ink px-7 py-4 text-[13px] font-extrabold uppercase tracking-[0.14em] text-base transition-colors duration-150 hover:bg-white"
+				>
+					{primaryLabel}
+				</a>
+				{
+					secondaryLabel && secondaryHref && (
+						<a
+							href={secondaryHref}
+							class="border border-white/[0.32] px-7 py-4 text-[13px] font-extrabold uppercase tracking-[0.14em] text-ink transition-colors duration-150 hover:bg-white/[0.08]"
+						>
+							{secondaryLabel}
+						</a>
+					)
+				}
+			</div>
+		</div>
+	</div>
+</section>
