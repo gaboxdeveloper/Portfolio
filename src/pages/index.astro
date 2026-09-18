@@ -1,118 +1,223 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Badge from "../components/Badge.astro";
-import SocialPill from "../components/SocialPill.astro";
-import LinkedinIcon from "../components/icons/LinkedinIcon.astro";
-import GithubIcon from "../components/icons/GithubIcon.astro";
-import MailIcon from "../components/icons/MailIcon.astro";
-import EducationIcon from "../components/icons/EducationIcon.astro";
-import Education from "../components/Education.astro";
-import CodeIcon from "../components/icons/Code.astro";
-import Projects from "../components/Projects.astro";
-import ArrowUp from "../components/icons/ArrowUp.astro";
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import DataRow from '../components/DataRow.astro';
+import ImageFrame from '../components/ImageFrame.astro';
+import CtaClose from '../components/CtaClose.astro';
 
-import { Image } from "astro:assets";
-import profilePhoto from "../../public/img/profilephoto.webp";
+// Configuración editable del home.
+const disponible = true;
+const mostrarCiber = true;
+const anioCiber = '2027';
+
+const servicios = [
+	{
+		num: '01',
+		title: 'Producto de punta a punta',
+		desc: 'De la idea cruda a la app publicada: definición, alcance, diseño, desarrollo y release, con una sola cabeza sosteniendo la coherencia.',
+	},
+	{
+		num: '02',
+		title: 'Aplicaciones móviles',
+		desc: 'Mi especialidad. React Native y Expo, arquitectura pensada para crecer y una experiencia que no se siente hecha a los apurones.',
+	},
+	{
+		num: '03',
+		title: 'Diseño UX con criterio',
+		desc: 'Flujos, jerarquía y decisiones defendibles. Menos pantallas bonitas, más caminos que la gente completa sin preguntar nada.',
+	},
+	{
+		num: '04',
+		title: 'Dirección técnica',
+		desc: 'Para equipos que ya están construyendo y necesitan alguien que ordene el rumbo, revise decisiones y frene lo que no hay que hacer.',
+	},
+];
 ---
 
 <Layout
-  title="Gabriel's portfolio - Web Developer"
-  icon="/img/profilephoto.webp"
+	title="Producto digital hecho bien"
+	description="RossyStudio: diseño y desarrollo de aplicaciones móviles con visión de producto. Un estudio unipersonal, operado en remoto desde Uruguay."
 >
-  <main class="px-10">
-    <section
-      class="w-full md:w-[650px] lg:w-[720px] xl:w-[1000px] mx-auto pt-40 pb-20 lg:pt-60 lg:pb-40"
-    >
-      <h1
-        class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row items-center gap-x-2 pb-5"
-      >
-        <Image
-          src={profilePhoto}
-          alt="my face"
-          width={80}
-          height={80}
-          class="rounded-full w-20 h-20"
-        />
-        I'm Gabriel Rossy
-      </h1>
-      <h2 class="text-lg lg:text-2xl text-wrap lg:max-w-[1120px]">
-        <span class="text-yellow-200/90"
-          >Web and Mobile developer with UX/UI knowledge</span
-        > from
-        <span class="text-blue-200">Montevideo, Uruguay</span>. I love
-        developing new projects to try to improve processes and solve problems
-        using technology.
-      </h2>
-      <ul class="flex gap-4 my-4 flex-wrap">
-        <li>
-          <SocialPill
-            href="https://www.linkedin.com/in/gabriel-rossy-baptista-y-vedia/"
-          >
-            <LinkedinIcon class="size-5 md:size-6" />
-            LinkedIn
-          </SocialPill>
-        </li>
-        <li>
-          <SocialPill href="https://github.com/gaboxdeveloper">
-            <GithubIcon class="size-5 md:size-6" />
-            GitHub
-          </SocialPill>
-        </li>
-        <li>
-          <SocialPill href=`mailto:${'grossy.sjb@gmail.com'}`>
-            <MailIcon class="size-5 md:size-6" />
-            grossy.sjb@gmail.com
-          </SocialPill>
-        </li>
-      </ul>
-    </section>
-	<section
-      class="w-full md:w-[650px] lg:w-[720px] xl:w-[1000px] mx-auto"
-    >
-      <h2
-        class="text-xl md:text-2xl lg:text-3xl font-semibold mb-4 text-pretty text-blue-200"
-      >
-        About me
-      </h2>
-      <p class="text-md lg:text-xl text-wrap lg:max-w-[1120px] text-justify">
-        I discovered my passion for programming in 2022 during a seven-month
-        solo trip across New Zealand. Traveling alone taught me adaptability,
-        self management, and a constant drive to learn skills that I now apply
-        to my professional life. That experience sparked my interest in logical
-        challenges and problem-solving, leading me to make a natural transition
-        from Design to Programming. This combination gave me a holistic view of
-        both the creative and technical sides of a project, allowing me to
-        communicate effectively across teams and approach work from a complete
-        perspective. I'm known for my calm and steady personality (someone easy
-        to work with), who avoids conflict and focuses on collaboration. At the
-        same time, I'm proactive, curious, and continuously improving, always
-        striving for quality and thoughtful results.
-      </p>
-    </section>
-    <section
-      id="education"
-      class="w-full md:w-[650px] lg:w-[720px] xl:w-[1000px] mx-auto py-10 lg:py-20"
-    >
-      <h2 class="flex gap-x-2 items-center justify text-3xl font-semibold mb-6">
-        <EducationIcon class="size-6 md:size-7" />Education
-      </h2>
-      <Education />
-    </section>
-    <section
-      id="projects"
-      class="w-full md:w-[650px] lg:w-[720px] xl:w-[1000px] mx-auto py-10 lg:py-20"
-    >
-      <h2
-        class="flex gap-x-2 items-center justify text-3xl xl:text-4xl font-semibold mb-6"
-      >
-        <CodeIcon class="size-6 md:size-7" />Projects
-      </h2>
-      <Projects />
-    </section>
-    <section
-      class="w-full md:w-[650px] lg:w-[720px] xl:w-[1000px] mx-auto flex justify-center"
-    >
-      <a href="/#"><ArrowUp class="size-10 transition hover:scale-125" /></a>
-    </section>
-  </main>
+	<Header />
+
+	<section class="section-pad border-b-2 border-white/[0.22] pb-0 pt-[5vw]">
+		<div class="flex flex-wrap justify-between gap-x-8 gap-y-2 pb-6">
+			<span class="text-[11px] font-semibold uppercase tracking-[0.18em] text-silver-muted">
+				Estudio de producto digital
+			</span>
+			<span class="text-[11px] font-semibold uppercase tracking-[0.18em] text-silver-muted">
+				Mobile first
+			</span>
+			<span class="text-[11px] font-semibold uppercase tracking-[0.18em] text-silver-muted">
+				Uruguay
+			</span>
+			<span class="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink">
+				<span class="h-[7px] w-[7px] rounded-full bg-ink"></span>
+				{disponible ? 'Tomando proyectos' : 'Agenda completa'}
+			</span>
+		</div>
+
+		<h1 class="text-[clamp(46px,11.2vw,184px)] font-extrabold uppercase leading-[0.85] tracking-[-0.05em]">
+			PRODUCTO<br />
+			<span class="text-silver-muted">DIGITAL</span><br />
+			HECHO BIEN
+		</h1>
+
+		<div class="mt-10 grid gap-10 pb-[6.5vw]" style="grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 40px;">
+			<p class="max-w-[32ch] text-[clamp(16px,1.6vw,23px)] font-medium leading-[1.45]">
+				Pienso, diseño y construyo aplicaciones móviles con mi propia visión del producto. Solo, o dirigiendo el equipo que haga falta.
+			</p>
+			<div>
+				<p class="max-w-[42ch] text-[15px] leading-[1.6] text-ink-secondary">
+					Pensar, decidir y construir son la misma tarea. Por eso acá no hay traspaso de manos: la persona que define el producto es la que lo escribe.
+				</p>
+				<div class="mt-6 flex flex-wrap gap-4">
+					<a
+						href="/contacto"
+						class="bg-ink px-7 py-4 text-[13px] font-extrabold uppercase tracking-[0.14em] text-base transition-colors duration-150 hover:bg-white"
+					>
+						Enviar consulta {'→'}
+					</a>
+					<a
+						href="/trabajo/etool"
+						class="border border-white/[0.32] px-7 py-4 text-[13px] font-extrabold uppercase tracking-[0.14em] text-ink transition-colors duration-150 hover:bg-white/[0.08]"
+					>
+						Ver el caso eTool
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<DataRow
+		borderBottom={true}
+		items={[
+			{ value: 'iOS/Android', valueClass: 'text-silver-muted', label: 'Una base de código' },
+			{ value: '1', label: 'Responsable del proyecto' },
+			{ value: '48h', label: 'Tiempo de respuesta' },
+			{ value: 'E2E', valueClass: 'text-silver-muted', label: 'Idea, diseño, código, release' },
+		]}
+	/>
+
+	<section id="servicios" class="section-pad py-[6.5vw]">
+		<div class="mb-10 flex flex-wrap items-end justify-between gap-4">
+			<h2 class="text-[clamp(28px,4vw,52px)] font-extrabold uppercase tracking-[-0.035em]">QUÉ HAGO</h2>
+			<span class="pb-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-silver-muted">{'01 — Servicios'}</span>
+		</div>
+		<div>
+			{
+				servicios.map((s, i) => (
+					<a
+						href="/servicios"
+						class:list={[
+							'grid items-center gap-4 py-6 transition-colors duration-150 hover:bg-white/[0.04]',
+							i === servicios.length - 1 ? 'border-b-2 border-white/[0.22]' : 'border-b border-white/[0.16]',
+						]}
+						style="grid-template-columns: 64px minmax(0,1fr) minmax(0,1.25fr);"
+					>
+						<span class="text-[12px] font-extrabold text-silver-muted">{s.num}</span>
+						<h3 class="text-[clamp(18px,2.1vw,27px)] font-extrabold uppercase tracking-[-0.02em]">{s.title}</h3>
+						<p class="text-[15px] leading-[1.6] text-ink-secondary">{s.desc}</p>
+					</a>
+				))
+			}
+		</div>
+	</section>
+
+	<section id="etool" class="section-pad pb-[6.5vw]">
+		<div class="mb-10 flex flex-wrap items-end justify-between gap-4">
+			<h2 class="text-[clamp(28px,4vw,52px)] font-extrabold tracking-[-0.035em]">eTool</h2>
+			<span class="pb-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-silver-muted">{'02 — Caso'}</span>
+		</div>
+		<div class="grid border border-white/[0.16]" style="grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));">
+			<div class="p-[38px]">
+				<span class="text-[11px] font-semibold uppercase tracking-[0.18em] text-silver-muted">{'App móvil · Ganadería'}</span>
+				<h3 class="mt-3 text-[clamp(18px,2.1vw,27px)] font-extrabold uppercase tracking-[-0.02em]">
+					La gestión del campo, en el bolsillo del productor
+				</h3>
+				<p class="mt-4 max-w-[46ch] text-[15px] leading-[1.6] text-ink-secondary">
+					Una app para cargar animales, pasturas y suplementación con el mínimo esfuerzo, y convertir esos datos en proyecciones que ayudan a decidir.
+				</p>
+				<div class="mt-6 grid grid-cols-2 border-t border-white/[0.16] pt-4">
+					<div class="border-r border-white/[0.16] pr-4">
+						<p class="text-[18px] font-extrabold tracking-[-0.02em]">iOS/And</p>
+						<p class="mt-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-silver-muted">{'Expo · React Native'}</p>
+					</div>
+					<div class="pl-4">
+						<p class="text-[18px] font-extrabold tracking-[-0.02em]">4 módulos</p>
+						<p class="mt-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-silver-muted">Datos y proyecciones</p>
+					</div>
+				</div>
+				<a
+					href="/trabajo/etool"
+					class="mt-8 inline-block border border-white/[0.32] px-7 py-4 text-[13px] font-extrabold uppercase tracking-[0.14em] text-ink transition-colors duration-150 hover:bg-white/[0.08]"
+				>
+					Caso completo {'→'}
+				</a>
+			</div>
+			<div class="bg-panel p-[38px]">
+				<ImageFrame ratio="9/19" label="Captura: eTool" class="max-w-[220px]" />
+				<ImageFrame ratio="9/19" label="Captura: eTool" class="mt-9 max-w-[220px]" />
+			</div>
+		</div>
+	</section>
+
+	<section id="sobre" class="section-pad border-t-2 border-white/[0.22] py-[6.5vw]">
+		<div class="grid gap-10" style="grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));">
+			<div>
+				<span class="text-[11px] font-semibold uppercase tracking-[0.18em] text-silver-muted">{'03 — El estudio'}</span>
+				<h2 class="mt-3 text-[clamp(28px,4vw,52px)] font-extrabold uppercase tracking-[-0.035em]">
+					UN ESTUDIO DE UNA PERSONA, CON CRITERIO DE EQUIPO
+				</h2>
+			</div>
+			<div>
+				<p class="text-[15px] leading-[1.6] text-ink-secondary">
+					No hay capas intermedias: quien habla con vos es quien diseña, escribe el código y responde cuando algo se rompe. Eso hace que las decisiones sean rápidas y consistentes de punta a punta.
+				</p>
+				<p class="mt-4 text-[15px] leading-[1.6] text-ink-secondary">
+					Trabajo en remoto desde Uruguay, pero cuando el proyecto lo pide, viajo: reuniones presenciales y visitas a las instalaciones del cliente para entender el trabajo donde realmente pasa. Y si hacen falta más manos, sumo especialistas y los dirijo yo.
+				</p>
+				<a
+					href="/estudio"
+					class="mt-6 inline-block border border-white/[0.32] px-7 py-4 text-[13px] font-extrabold uppercase tracking-[0.14em] text-ink transition-colors duration-150 hover:bg-white/[0.08]"
+				>
+					Cómo trabajo {'→'}
+				</a>
+			</div>
+		</div>
+	</section>
+
+	{
+		mostrarCiber && (
+			<section class="section-pad pb-[6.5vw]">
+				<div class="grid border border-white/[0.16] bg-panel" style="grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));">
+					<div class="p-[38px]">
+						<span class="inline-block border border-white/[0.32] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-silver">
+							Próxima línea
+						</span>
+						<h3 class="mt-4 text-[clamp(24px,3vw,36px)] font-extrabold uppercase tracking-[-0.03em]">Ciberseguridad</h3>
+						<p class="mt-3 max-w-[46ch] text-[15px] leading-[1.6] text-ink-secondary">
+							Una segunda línea de servicio para auditar y proteger los productos que construyo y los de otros equipos. Todavía no está abierta.
+						</p>
+					</div>
+					<div class="flex items-end justify-start p-[38px] sm:justify-end">
+						<div class="text-right">
+							<p class="text-[clamp(46px,7vw,96px)] font-extrabold leading-none tracking-[-0.035em] text-ghost">{anioCiber}</p>
+							<p class="mt-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-silver-muted">Apertura estimada</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		)
+	}
+
+	<CtaClose
+		heading="CONTAME QUÉ QUERÉS CONSTRUIR"
+		paragraph="Respondo personalmente en menos de 48 horas. Si el proyecto no es para mí, te lo digo derecho."
+		primaryLabel={`Enviar consulta →`}
+		primaryHref="/contacto"
+	/>
+
+	<Footer />
 </Layout>
