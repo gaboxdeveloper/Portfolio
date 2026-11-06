@@ -1,223 +1,1082 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import DataRow from '../components/DataRow.astro';
-import ImageFrame from '../components/ImageFrame.astro';
-import CtaClose from '../components/CtaClose.astro';
 
-// Configuración editable del home.
-const disponible = true;
-const mostrarCiber = true;
-const anioCiber = '2027';
-
-const servicios = [
+const services = [
 	{
-		num: '01',
-		title: 'Producto de punta a punta',
-		desc: 'De la idea cruda a la app publicada: definición, alcance, diseño, desarrollo y release, con una sola cabeza sosteniendo la coherencia.',
+		n: 'W',
+		title: 'Sitios web',
+		body: 'Sitios institucionales, landings y plataformas a medida. Rápidos, accesibles y fáciles de mantener.',
+		tags: 'Web · E-commerce · Plataformas',
 	},
 	{
-		num: '02',
-		title: 'Aplicaciones móviles',
-		desc: 'Mi especialidad. React Native y Expo, arquitectura pensada para crecer y una experiencia que no se siente hecha a los apurones.',
+		n: 'A',
+		title: 'Apps móviles',
+		body: 'Aplicaciones para iOS y Android desde una sola base de código, publicadas en las tiendas.',
+		tags: 'iOS · Android · React Native',
 	},
 	{
-		num: '03',
-		title: 'Diseño UX con criterio',
-		desc: 'Flujos, jerarquía y decisiones defendibles. Menos pantallas bonitas, más caminos que la gente completa sin preguntar nada.',
-	},
-	{
-		num: '04',
-		title: 'Dirección técnica',
-		desc: 'Para equipos que ya están construyendo y necesitan alguien que ordene el rumbo, revise decisiones y frene lo que no hay que hacer.',
+		n: 'D',
+		title: 'Diseño UX/UI',
+		body: 'Investigación, flujos, prototipos e interfaces que la gente entiende sin manual.',
+		tags: 'Research · Prototipos · Design systems',
 	},
 ];
+
+const manifesto =
+	'Toda app empezó como una idea anotada en cualquier lado. Nuestro trabajo es llevarla de ahí a la pantalla: entenderla, diseñarla, escribir cada línea de código y ponerla en manos de la gente. Sin traspasos, con el mismo equipo de principio a fin. Eso es Ideago: una idea que arranca.';
+const accentWords = new Set(['Ideago:', 'arranca.']);
+const words = manifesto.split(' ');
 ---
 
 <Layout
-	title="Producto digital hecho bien"
-	description="RossyStudio: diseño y desarrollo de aplicaciones móviles con visión de producto. Un estudio unipersonal, operado en remoto desde Uruguay."
+	title="Ideago · De la idea al código"
+	description="Estudio de producto digital en Uruguay. Diseñamos y desarrollamos sitios web, aplicaciones móviles y experiencias UX/UI."
 >
-	<Header />
+	<script is:inline slot="head">
+		(function () {
+			var d = document.documentElement;
+			d.classList.add('js');
+			var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			var seen = false;
+			try {
+				seen = sessionStorage.getItem('ideago-intro') === '1';
+			} catch (e) {}
+			if (!reduce && !seen) d.classList.add('intro-on');
+			else d.classList.add('ready');
+		})();
+	</script>
 
-	<section class="section-pad border-b-2 border-white/[0.22] pb-0 pt-[5vw]">
-		<div class="flex flex-wrap justify-between gap-x-8 gap-y-2 pb-6">
-			<span class="text-[11px] font-semibold uppercase tracking-[0.18em] text-silver-muted">
-				Estudio de producto digital
-			</span>
-			<span class="text-[11px] font-semibold uppercase tracking-[0.18em] text-silver-muted">
-				Mobile first
-			</span>
-			<span class="text-[11px] font-semibold uppercase tracking-[0.18em] text-silver-muted">
-				Uruguay
-			</span>
-			<span class="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink">
-				<span class="h-[7px] w-[7px] rounded-full bg-ink"></span>
-				{disponible ? 'Tomando proyectos' : 'Agenda completa'}
-			</span>
+	<div class="cursor" aria-hidden="true"><span class="cursor-label">go →</span></div>
+
+	<div class="intro" aria-hidden="true">
+		<div class="intro-row">
+			<span class="label label-lilac">Ideago · estudio de producto digital</span>
+			<span class="label label-lilac">Cargando idea</span>
 		</div>
+		<div class="intro-words">
+			<span class="iw">idea</span><span class="iw iw-soft">→ diseño</span><span class="iw iw-soft">→ código</span><span
+				class="iw iw-accent">→ go.</span
+			>
+		</div>
+		<div class="intro-foot">
+			<div class="intro-track"><div class="intro-bar"></div></div>
+			<button type="button" class="label intro-skip" data-skip-intro>Saltar intro →</button>
+		</div>
+	</div>
 
-		<h1 class="text-[clamp(46px,11.2vw,184px)] font-extrabold uppercase leading-[0.85] tracking-[-0.05em]">
-			PRODUCTO<br />
-			<span class="text-silver-muted">DIGITAL</span><br />
-			HECHO BIEN
-		</h1>
+	<header class="site-header">
+		<div class="wrap header-inner">
+			<div class="header-left">
+				<a href="#inicio" class="logo-link" aria-label="Ideago, inicio">
+					<img src="/logo/ideago.png" alt="Ideago" width="105" height="36" />
+				</a>
+				<span class="label label-muted">MVD · <time data-clock>--:--:--</time></span>
+			</div>
+			<nav aria-label="Principal" class="nav">
+				<a href="#servicios"><span class="label nav-num">01</span>Servicios</a>
+				<a href="#manifiesto"><span class="label nav-num">02</span>Manifiesto</a>
+				<a href="#trabajo"><span class="label nav-num">03</span>Trabajo</a>
+				<a href="#contacto" class="btn btn-accent btn-sm">Contanos tu idea</a>
+			</nav>
+		</div>
+	</header>
 
-		<div class="mt-10 grid gap-10 pb-[6.5vw]" style="grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 40px;">
-			<p class="max-w-[32ch] text-[clamp(16px,1.6vw,23px)] font-medium leading-[1.45]">
-				Pienso, diseño y construyo aplicaciones móviles con mi propia visión del producto. Solo, o dirigiendo el equipo que haga falta.
+	<main>
+		<section id="inicio" class="wrap hero">
+			<div class="hero-top">
+				<span class="label label-muted">Inicio</span>
+				<span class="label label-muted">Web · Apps · UX/UI</span>
+			</div>
+			<div class="hero-grid">
+				<div class="hero-copy">
+					<h1 class="hero-title">De la idea<br />al <span class="accent">código.</span></h1>
+					<p class="lead">
+						Diseñamos y desarrollamos sitios web, aplicaciones móviles y experiencias UX/UI. Un mismo equipo, de la
+						primera charla al lanzamiento.
+					</p>
+					<div class="actions">
+						<a href="#contacto" class="btn btn-navy">Contanos tu idea →</a>
+						<a href="#trabajo" class="btn btn-outline">Ver nuestro trabajo</a>
+					</div>
+				</div>
+				<div class="cards">
+					<div class="hc hc-navy"><span class="label hc-num">01</span><span class="hc-word">idea</span></div>
+					<div class="hc hc-white hc-down"><span class="label hc-num">02</span><span class="hc-word">diseño</span></div>
+					<div class="hc hc-white hc-up"><span class="label hc-num">03</span><span class="hc-word">código</span></div>
+					<div class="hc hc-accent"><span class="label hc-num">04</span><span class="hc-word">go.</span></div>
+				</div>
+			</div>
+		</section>
+
+		<section id="servicios" class="band-white">
+			<div class="wrap section">
+				<div class="section-head">
+					<div class="stack-14">
+						<span class="label label-muted">Servicios</span>
+						<h2 class="h2">Qué hacemos</h2>
+					</div>
+					<p class="section-intro">
+						Tres disciplinas que trabajan juntas desde el día uno, para que lo que se diseña sea lo que se construye.
+					</p>
+				</div>
+				<div class="services">
+					{
+						services.map((s) => (
+							<article class="service">
+								<div class="service-icon" aria-hidden="true">
+									{s.n}
+								</div>
+								<h3 class="h3">{s.title}</h3>
+								<p class="body">{s.body}</p>
+								<p class="tags">{s.tags}</p>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<section id="manifiesto" class="wrap manifesto">
+			<div class="manifesto-side">
+				<span class="label label-muted">Manifiesto</span>
+				<div class="stack-8">
+					<span class="label label-soft">Progreso</span>
+					<div class="progress"><div class="progress-bar" data-progress></div></div>
+				</div>
+			</div>
+			<p class="manifesto-text" data-manifesto>
+				{
+					words.map((w) => (
+						<>
+							<span class:list={['word', { 'word-accent': accentWords.has(w) }]}>{w}</span>{' '}
+						</>
+					))
+				}
 			</p>
-			<div>
-				<p class="max-w-[42ch] text-[15px] leading-[1.6] text-ink-secondary">
-					Pensar, decidir y construir son la misma tarea. Por eso acá no hay traspaso de manos: la persona que define el producto es la que lo escribe.
-				</p>
-				<div class="mt-6 flex flex-wrap gap-4">
-					<a
-						href="/contacto"
-						class="bg-ink px-7 py-4 text-[13px] font-extrabold uppercase tracking-[0.14em] text-base transition-colors duration-150 hover:bg-white"
-					>
-						Enviar consulta {'→'}
-					</a>
-					<a
-						href="/trabajo/etool"
-						class="border border-white/[0.32] px-7 py-4 text-[13px] font-extrabold uppercase tracking-[0.14em] text-ink transition-colors duration-150 hover:bg-white/[0.08]"
-					>
-						Ver el caso eTool
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
+		</section>
 
-	<DataRow
-		borderBottom={true}
-		items={[
-			{ value: 'iOS/Android', valueClass: 'text-silver-muted', label: 'Una base de código' },
-			{ value: '1', label: 'Responsable del proyecto' },
-			{ value: '48h', label: 'Tiempo de respuesta' },
-			{ value: 'E2E', valueClass: 'text-silver-muted', label: 'Idea, diseño, código, release' },
-		]}
-	/>
-
-	<section id="servicios" class="section-pad py-[6.5vw]">
-		<div class="mb-10 flex flex-wrap items-end justify-between gap-4">
-			<h2 class="text-[clamp(28px,4vw,52px)] font-extrabold uppercase tracking-[-0.035em]">QUÉ HAGO</h2>
-			<span class="pb-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-silver-muted">{'01 — Servicios'}</span>
-		</div>
-		<div>
-			{
-				servicios.map((s, i) => (
-					<a
-						href="/servicios"
-						class:list={[
-							'grid items-center gap-4 py-6 transition-colors duration-150 hover:bg-white/[0.04]',
-							i === servicios.length - 1 ? 'border-b-2 border-white/[0.22]' : 'border-b border-white/[0.16]',
-						]}
-						style="grid-template-columns: 64px minmax(0,1fr) minmax(0,1.25fr);"
-					>
-						<span class="text-[12px] font-extrabold text-silver-muted">{s.num}</span>
-						<h3 class="text-[clamp(18px,2.1vw,27px)] font-extrabold uppercase tracking-[-0.02em]">{s.title}</h3>
-						<p class="text-[15px] leading-[1.6] text-ink-secondary">{s.desc}</p>
-					</a>
-				))
-			}
-		</div>
-	</section>
-
-	<section id="etool" class="section-pad pb-[6.5vw]">
-		<div class="mb-10 flex flex-wrap items-end justify-between gap-4">
-			<h2 class="text-[clamp(28px,4vw,52px)] font-extrabold tracking-[-0.035em]">eTool</h2>
-			<span class="pb-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-silver-muted">{'02 — Caso'}</span>
-		</div>
-		<div class="grid border border-white/[0.16]" style="grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));">
-			<div class="p-[38px]">
-				<span class="text-[11px] font-semibold uppercase tracking-[0.18em] text-silver-muted">{'App móvil · Ganadería'}</span>
-				<h3 class="mt-3 text-[clamp(18px,2.1vw,27px)] font-extrabold uppercase tracking-[-0.02em]">
-					La gestión del campo, en el bolsillo del productor
-				</h3>
-				<p class="mt-4 max-w-[46ch] text-[15px] leading-[1.6] text-ink-secondary">
-					Una app para cargar animales, pasturas y suplementación con el mínimo esfuerzo, y convertir esos datos en proyecciones que ayudan a decidir.
-				</p>
-				<div class="mt-6 grid grid-cols-2 border-t border-white/[0.16] pt-4">
-					<div class="border-r border-white/[0.16] pr-4">
-						<p class="text-[18px] font-extrabold tracking-[-0.02em]">iOS/And</p>
-						<p class="mt-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-silver-muted">{'Expo · React Native'}</p>
-					</div>
-					<div class="pl-4">
-						<p class="text-[18px] font-extrabold tracking-[-0.02em]">4 módulos</p>
-						<p class="mt-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-silver-muted">Datos y proyecciones</p>
-					</div>
-				</div>
-				<a
-					href="/trabajo/etool"
-					class="mt-8 inline-block border border-white/[0.32] px-7 py-4 text-[13px] font-extrabold uppercase tracking-[0.14em] text-ink transition-colors duration-150 hover:bg-white/[0.08]"
-				>
-					Caso completo {'→'}
-				</a>
-			</div>
-			<div class="bg-panel p-[38px]">
-				<ImageFrame ratio="9/19" label="Captura: eTool" class="max-w-[220px]" />
-				<ImageFrame ratio="9/19" label="Captura: eTool" class="mt-9 max-w-[220px]" />
-			</div>
-		</div>
-	</section>
-
-	<section id="sobre" class="section-pad border-t-2 border-white/[0.22] py-[6.5vw]">
-		<div class="grid gap-10" style="grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));">
-			<div>
-				<span class="text-[11px] font-semibold uppercase tracking-[0.18em] text-silver-muted">{'03 — El estudio'}</span>
-				<h2 class="mt-3 text-[clamp(28px,4vw,52px)] font-extrabold uppercase tracking-[-0.035em]">
-					UN ESTUDIO DE UNA PERSONA, CON CRITERIO DE EQUIPO
-				</h2>
-			</div>
-			<div>
-				<p class="text-[15px] leading-[1.6] text-ink-secondary">
-					No hay capas intermedias: quien habla con vos es quien diseña, escribe el código y responde cuando algo se rompe. Eso hace que las decisiones sean rápidas y consistentes de punta a punta.
-				</p>
-				<p class="mt-4 text-[15px] leading-[1.6] text-ink-secondary">
-					Trabajo en remoto desde Uruguay, pero cuando el proyecto lo pide, viajo: reuniones presenciales y visitas a las instalaciones del cliente para entender el trabajo donde realmente pasa. Y si hacen falta más manos, sumo especialistas y los dirijo yo.
-				</p>
-				<a
-					href="/estudio"
-					class="mt-6 inline-block border border-white/[0.32] px-7 py-4 text-[13px] font-extrabold uppercase tracking-[0.14em] text-ink transition-colors duration-150 hover:bg-white/[0.08]"
-				>
-					Cómo trabajo {'→'}
-				</a>
-			</div>
-		</div>
-	</section>
-
-	{
-		mostrarCiber && (
-			<section class="section-pad pb-[6.5vw]">
-				<div class="grid border border-white/[0.16] bg-panel" style="grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));">
-					<div class="p-[38px]">
-						<span class="inline-block border border-white/[0.32] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-silver">
-							Próxima línea
-						</span>
-						<h3 class="mt-4 text-[clamp(24px,3vw,36px)] font-extrabold uppercase tracking-[-0.03em]">Ciberseguridad</h3>
-						<p class="mt-3 max-w-[46ch] text-[15px] leading-[1.6] text-ink-secondary">
-							Una segunda línea de servicio para auditar y proteger los productos que construyo y los de otros equipos. Todavía no está abierta.
-						</p>
-					</div>
-					<div class="flex items-end justify-start p-[38px] sm:justify-end">
-						<div class="text-right">
-							<p class="text-[clamp(46px,7vw,96px)] font-extrabold leading-none tracking-[-0.035em] text-ghost">{anioCiber}</p>
-							<p class="mt-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-silver-muted">Apertura estimada</p>
+		<section id="trabajo" class="band-navy">
+			<div class="wrap section case">
+				<div class="case-copy">
+					<span class="label label-lilac">Caso · App móvil · Ganadería</span>
+					<h2 class="case-title">eTool</h2>
+					<p class="case-lead">
+						El balance forrajero, en el bolsillo del productor: cuánto pasto hay, cuánto necesita el ganado y qué hacer
+						para que no falte.
+					</p>
+					<div class="case-facts">
+						<div class="stack-6">
+							<span class="label label-lilac">Plataforma</span><span class="fact">iOS · Android</span>
+						</div>
+						<div class="stack-6">
+							<span class="label label-lilac">Alcance</span><span class="fact">Producto, diseño y código</span>
 						</div>
 					</div>
+					<a href="https://etoolapp.netlify.app" target="_blank" rel="noopener" class="btn btn-white"
+						>Ver el caso completo ↗</a
+					>
 				</div>
-			</section>
-		)
+				<div class="phones">
+					<div class="phone">
+						<img
+							src="/img/etool-login.webp"
+							alt="eTool, pantalla de inicio de sesión"
+							width="640"
+							height="1391"
+							loading="lazy"
+						/>
+					</div>
+					<div class="phone phone-down">
+						<img
+							src="/img/etool-proyecciones.webp"
+							alt="eTool, pantalla de proyecciones con el gráfico de forraje disponible y consumo"
+							width="640"
+							height="1391"
+							loading="lazy"
+						/>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="contacto" class="contact-wrap">
+			<div class="wrap">
+				<div class="contact">
+					<div class="contact-copy">
+						<span class="label label-muted">Contacto</span>
+						<h2 class="contact-title">¿Tenés una idea?<br /><span class="accent">Vamos.</span></h2>
+						<p class="section-intro">
+							Contanos en pocas líneas qué querés construir. Te respondemos con próximos pasos y una primera estimación.
+						</p>
+					</div>
+					<form
+						class="form"
+						name="contacto"
+						method="POST"
+						action="/gracias"
+						data-netlify="true"
+						netlify-honeypot="bot-field"
+					>
+						<input type="hidden" name="form-name" value="contacto" />
+						<p class="sr-only">
+							<label>No completes este campo: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+						</p>
+						<label class="label label-muted field">Nombre<input type="text" name="nombre" required autocomplete="name" /></label>
+						<label class="label label-muted field">Email<input type="email" name="email" required autocomplete="email" /></label>
+						<label class="label label-muted field"
+							>¿Qué necesitás?<select name="necesidad">
+								<option>Sitio web</option>
+								<option>App móvil</option>
+								<option>Diseño UX/UI</option>
+								<option>Todavía no sé</option>
+							</select></label
+						>
+						<label class="label label-muted field"
+							>Tu idea en pocas líneas<textarea name="idea" rows="4" required></textarea></label
+						>
+						<button type="submit" class="btn btn-accent">Enviar →</button>
+					</form>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="wrap footer-inner">
+			<img src="/logo/ideago.png" alt="Ideago" width="93" height="32" />
+			<span class="label label-muted">De la idea al código · Montevideo, UY</span>
+		</div>
+	</footer>
+</Layout>
+
+<style is:global>
+	.wrap {
+		max-width: 1240px;
+		margin: 0 auto;
+		padding-left: 24px;
+		padding-right: 24px;
+	}
+	.label {
+		font-family: var(--font-body);
+		font-size: 14px;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	.label-muted {
+		color: var(--muted);
+	}
+	.label-soft {
+		color: var(--soft);
+	}
+	.label-lilac {
+		color: var(--lilac);
+	}
+	.accent {
+		color: var(--accent);
+	}
+	.stack-6,
+	.stack-8,
+	.stack-14 {
+		display: flex;
+		flex-direction: column;
+	}
+	.stack-6 {
+		gap: 6px;
+	}
+	.stack-8 {
+		gap: 8px;
+	}
+	.stack-14 {
+		gap: 14px;
 	}
 
-	<CtaClose
-		heading="CONTAME QUÉ QUERÉS CONSTRUIR"
-		paragraph="Respondo personalmente en menos de 48 horas. Si el proyecto no es para mí, te lo digo derecho."
-		primaryLabel={`Enviar consulta →`}
-		primaryHref="/contacto"
-	/>
+	/* Buttons */
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 44px;
+		padding: 15px 27px;
+		border-radius: 999px;
+		font: 600 16px/1.2 var(--font-body);
+		text-decoration: none;
+		border: 1.5px solid transparent;
+		cursor: pointer;
+		transition: transform 0.2s ease, background-color 0.2s ease;
+	}
+	.btn:hover {
+		transform: translateY(-1px);
+	}
+	.btn-sm {
+		padding: 12px 20px;
+		font-size: 15px;
+	}
+	.btn-navy {
+		background: var(--navy);
+		color: #fff;
+	}
+	.btn-navy:hover {
+		color: #fff;
+	}
+	.btn-accent {
+		background: var(--accent);
+		color: #fff;
+	}
+	.btn-accent:hover {
+		color: #fff;
+	}
+	.btn-outline {
+		border-color: var(--navy);
+		color: var(--navy);
+	}
+	.btn-white {
+		background: #fff;
+		color: var(--navy);
+		align-self: flex-start;
+	}
+	.btn-white:hover {
+		color: var(--navy);
+	}
 
-	<Footer />
-</Layout>
+	/* Header */
+	.site-header {
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		background: rgba(255, 255, 255, 0.88);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		border-bottom: 1px solid var(--line);
+	}
+	.header-inner {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+		padding-top: 14px;
+		padding-bottom: 14px;
+	}
+	.header-left {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		flex-wrap: wrap;
+	}
+	.logo-link {
+		display: block;
+		line-height: 0;
+	}
+	.logo-link img {
+		height: 36px;
+		width: auto;
+	}
+	.nav {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 24px;
+		font-size: 15px;
+		font-weight: 500;
+	}
+	.nav a:not(.btn) {
+		text-decoration: none;
+	}
+	.nav-num {
+		color: var(--soft);
+		margin-right: 6px;
+	}
+
+	/* Hero */
+	.hero {
+		padding-top: 72px;
+		padding-bottom: 88px;
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+	}
+	.hero-top {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 16px;
+		border-bottom: 1px solid #d9dcea;
+		padding-bottom: 14px;
+	}
+	.hero-grid {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 56px;
+		align-items: center;
+	}
+	.hero-copy {
+		flex: 1 1 520px;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 28px;
+	}
+	.hero-title {
+		margin: 0;
+		font-family: var(--font-display);
+		font-weight: 800;
+		font-size: clamp(44px, 6vw, 84px);
+		line-height: 1.02;
+		letter-spacing: -0.03em;
+	}
+	.lead {
+		margin: 0;
+		font-size: 20px;
+		line-height: 1.55;
+		color: var(--ink);
+		max-width: 34ch;
+	}
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 14px;
+	}
+	.cards {
+		flex: 1 1 420px;
+		min-width: 0;
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 16px;
+	}
+	.hc {
+		border-radius: 24px;
+		padding: 28px;
+		height: 220px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.hc-word {
+		font-family: var(--font-display);
+		font-size: 32px;
+		font-weight: 700;
+	}
+	.hc-navy {
+		background: var(--navy);
+		color: #fff;
+	}
+	.hc-navy .hc-num {
+		color: var(--lilac);
+	}
+	.hc-white {
+		background: #fff;
+		border: 1px solid var(--line);
+	}
+	.hc-white .hc-num {
+		color: var(--muted);
+	}
+	.hc-accent {
+		background: var(--accent);
+		color: #fff;
+	}
+	.hc-down {
+		margin-top: 48px;
+	}
+	.hc-up {
+		margin-top: -48px;
+	}
+
+	/* Sections */
+	.band-white {
+		background: #fff;
+		border-top: 1px solid var(--line);
+		border-bottom: 1px solid var(--line);
+	}
+	.band-navy {
+		background: var(--navy);
+		color: #fff;
+	}
+	.section {
+		padding-top: 88px;
+		padding-bottom: 88px;
+	}
+	.section-head {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: flex-end;
+		gap: 24px;
+		margin-bottom: 48px;
+	}
+	.h2 {
+		margin: 0;
+		font-family: var(--font-display);
+		font-weight: 700;
+		font-size: clamp(32px, 4vw, 48px);
+		letter-spacing: -0.02em;
+	}
+	.h3 {
+		margin: 0;
+		font-family: var(--font-display);
+		font-size: 26px;
+		font-weight: 700;
+	}
+	.section-intro {
+		margin: 0;
+		font-size: 18px;
+		line-height: 1.55;
+		color: var(--ink);
+		max-width: 44ch;
+	}
+	.services {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 20px;
+	}
+	.service {
+		background: var(--bg);
+		border-radius: 24px;
+		padding: 36px;
+		display: flex;
+		flex-direction: column;
+		gap: 18px;
+	}
+	.service-icon {
+		width: 52px;
+		height: 52px;
+		border-radius: 16px;
+		background: var(--navy);
+		color: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-family: var(--font-display);
+		font-weight: 700;
+	}
+	.body {
+		margin: 0;
+		font-size: 16px;
+		line-height: 1.6;
+		color: var(--ink);
+	}
+	.tags {
+		margin: 0;
+		font-size: 14px;
+		font-weight: 600;
+		color: var(--muted);
+	}
+
+	/* Manifesto */
+	.manifesto {
+		padding-top: 120px;
+		padding-bottom: 140px;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 48px;
+	}
+	.manifesto-side {
+		flex: 1 1 200px;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 28px;
+	}
+	.progress {
+		height: 2px;
+		width: 160px;
+		background: #d9dcea;
+	}
+	.progress-bar {
+		height: 2px;
+		width: 100%;
+		background: var(--accent);
+		transform-origin: left;
+	}
+	.js .progress-bar {
+		transform: scaleX(0);
+	}
+	.manifesto-text {
+		flex: 999 1 640px;
+		min-width: 0;
+		margin: 0;
+		font-family: var(--font-display);
+		font-weight: 700;
+		font-size: clamp(30px, 3.6vw, 52px);
+		line-height: 1.18;
+		letter-spacing: -0.02em;
+	}
+	.word {
+		transition: color 0.35s ease;
+	}
+	.word-accent {
+		color: var(--accent);
+	}
+	.js .word {
+		color: #c9ccdd;
+	}
+	.js .word.lit {
+		color: var(--navy);
+	}
+	.js .word-accent.lit {
+		color: var(--accent);
+	}
+
+	/* Case */
+	.case {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 56px;
+		align-items: center;
+	}
+	.case-copy {
+		flex: 1 1 460px;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 22px;
+	}
+	.case-title {
+		margin: 0;
+		font-family: var(--font-display);
+		font-weight: 800;
+		font-size: clamp(40px, 5vw, 64px);
+		letter-spacing: -0.02em;
+	}
+	.case-lead {
+		margin: 0;
+		font-size: 20px;
+		line-height: 1.55;
+		color: #e4e5f6;
+		max-width: 36ch;
+	}
+	.case-facts {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 20px;
+		border-top: 1px solid #3b3f86;
+		padding-top: 22px;
+	}
+	.fact {
+		font-family: var(--font-display);
+		font-size: 22px;
+		font-weight: 700;
+	}
+	.phones {
+		flex: 1 1 420px;
+		min-width: 0;
+		display: flex;
+		justify-content: center;
+		gap: 24px;
+	}
+	.phone {
+		width: 232px;
+		flex: 0 1 232px;
+		min-width: 0;
+		background: #fff;
+		border-radius: 38px;
+		padding: 10px;
+		box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28);
+		align-self: flex-start;
+	}
+	.phone img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: 28px;
+	}
+	.phone-down {
+		margin-top: 56px;
+	}
+
+	/* Contact */
+	.contact-wrap {
+		padding-top: 96px;
+		padding-bottom: 96px;
+	}
+	.contact {
+		background: #fff;
+		border: 1px solid var(--line);
+		border-radius: 32px;
+		padding: clamp(28px, 5vw, 64px);
+		display: flex;
+		flex-wrap: wrap;
+		gap: 48px;
+	}
+	.contact-copy {
+		flex: 1 1 380px;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 18px;
+	}
+	.contact-title {
+		margin: 0;
+		font-family: var(--font-display);
+		font-weight: 800;
+		font-size: clamp(36px, 4.5vw, 56px);
+		letter-spacing: -0.02em;
+		line-height: 1.05;
+	}
+	.form {
+		flex: 1 1 420px;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+	.form .btn {
+		align-self: flex-start;
+		border: 0;
+	}
+	.field {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+	.field input,
+	.field select,
+	.field textarea {
+		font: 400 16px/1.4 var(--font-body);
+		letter-spacing: 0;
+		text-transform: none;
+		padding: 14px 16px;
+		border: 1px solid #c9ccdd;
+		border-radius: 14px;
+		background: var(--bg);
+		color: var(--navy);
+	}
+	.field textarea {
+		resize: vertical;
+	}
+
+	/* Footer */
+	.site-footer {
+		background: #fff;
+		border-top: 1px solid var(--line);
+	}
+	.footer-inner {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+	.footer-inner img {
+		height: 32px;
+		width: auto;
+		display: block;
+	}
+
+	/* Intro */
+	.intro {
+		display: none;
+	}
+	.intro-on .intro {
+		position: fixed;
+		inset: 0;
+		z-index: 150;
+		background: var(--navy);
+		color: #fff;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 32px;
+		animation: introOut 0.7s cubic-bezier(0.7, 0, 0.2, 1) 2.1s both;
+	}
+	.intro-on body {
+		overflow: hidden;
+	}
+	.intro-row {
+		display: flex;
+		justify-content: space-between;
+		gap: 16px;
+		flex-wrap: wrap;
+	}
+	.intro-words {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35em;
+		font-family: var(--font-display);
+		font-weight: 800;
+		font-size: clamp(48px, 9vw, 140px);
+		letter-spacing: -0.03em;
+		line-height: 1;
+	}
+	.iw {
+		display: inline-block;
+		opacity: 0;
+		animation: introWord 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+	}
+	.iw:nth-child(1) {
+		animation-delay: 0.15s;
+	}
+	.iw:nth-child(2) {
+		animation-delay: 0.55s;
+	}
+	.iw:nth-child(3) {
+		animation-delay: 0.95s;
+	}
+	.iw:nth-child(4) {
+		animation-delay: 1.35s;
+	}
+	.iw-soft {
+		color: var(--lilac);
+	}
+	.iw-accent {
+		color: var(--accent);
+	}
+	.intro-foot {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+	.intro-track {
+		height: 2px;
+		background: #2c3077;
+		overflow: hidden;
+	}
+	.intro-bar {
+		height: 2px;
+		background: var(--accent);
+		transform-origin: left;
+		animation: introBar 2s linear both;
+	}
+	.intro-skip {
+		align-self: flex-end;
+		background: none;
+		border: 0;
+		color: #fff;
+		padding: 12px 0;
+		min-height: 44px;
+		cursor: pointer;
+	}
+	@keyframes introWord {
+		from {
+			opacity: 0;
+			transform: translateY(40%);
+		}
+		to {
+			opacity: 1;
+			transform: none;
+		}
+	}
+	@keyframes introOut {
+		to {
+			transform: translateY(-100%);
+		}
+	}
+	@keyframes introBar {
+		from {
+			transform: scaleX(0);
+		}
+		to {
+			transform: scaleX(1);
+		}
+	}
+
+	/* Hero entrance */
+	@keyframes cardIn {
+		from {
+			opacity: 0;
+			transform: translateY(28px) scale(0.97);
+		}
+		to {
+			opacity: 1;
+			transform: none;
+		}
+	}
+	@keyframes titleIn {
+		from {
+			opacity: 0;
+			transform: translateY(30%);
+		}
+		to {
+			opacity: 1;
+			transform: none;
+		}
+	}
+	.intro-on .hc,
+	.intro-on .hero-title {
+		opacity: 0;
+	}
+	.ready.entering .hc {
+		animation: cardIn 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+	}
+	.ready.entering .hc:nth-child(2) {
+		animation-delay: 0.12s;
+	}
+	.ready.entering .hc:nth-child(3) {
+		animation-delay: 0.24s;
+	}
+	.ready.entering .hc:nth-child(4) {
+		animation-delay: 0.36s;
+	}
+	.ready.entering .hero-title {
+		animation: titleIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+	}
+
+	/* Custom cursor */
+	.cursor {
+		display: none;
+	}
+	@media (pointer: fine) {
+		.has-cursor,
+		.has-cursor a,
+		.has-cursor button,
+		.has-cursor input,
+		.has-cursor select,
+		.has-cursor textarea,
+		.has-cursor label {
+			cursor: none;
+		}
+		.has-cursor .cursor {
+			position: fixed;
+			left: 0;
+			top: 0;
+			z-index: 200;
+			width: 14px;
+			height: 14px;
+			margin: -7px 0 0 -7px;
+			border-radius: 999px;
+			background: #fff;
+			mix-blend-mode: difference;
+			pointer-events: none;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			opacity: 0;
+			transition: width 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), height 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+				margin 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.25s, opacity 0.2s;
+			will-change: transform;
+		}
+		.has-cursor .cursor.visible {
+			opacity: 1;
+		}
+		.has-cursor .cursor.go {
+			width: 64px;
+			height: 64px;
+			margin: -32px 0 0 -32px;
+			background: var(--accent);
+			mix-blend-mode: normal;
+		}
+		.has-cursor .cursor.go.on-accent {
+			background: var(--navy);
+		}
+	}
+	.cursor-label {
+		display: none;
+		color: #fff;
+		font: 500 12px/1 var(--font-body);
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+	.cursor.go .cursor-label {
+		display: inline;
+	}
+
+	@media (max-width: 560px) {
+		.hc {
+			height: 170px;
+			padding: 22px;
+		}
+		.hc-word {
+			font-size: 26px;
+		}
+		.phone {
+			flex-basis: 46%;
+		}
+		.intro-on .intro {
+			padding: 24px 16px;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.word,
+		.btn {
+			transition: none;
+		}
+	}
+</style>
+
+<script>
+	const root = document.documentElement;
+
+	// Intro: se muestra una vez por sesión.
+	function endIntro() {
+		if (!root.classList.contains('intro-on')) return;
+		root.classList.remove('intro-on');
+		root.classList.add('ready', 'entering');
+		try {
+			sessionStorage.setItem('ideago-intro', '1');
+		} catch (e) {}
+	}
+	if (root.classList.contains('intro-on')) {
+		const timer = window.setTimeout(endIntro, 2800);
+		document.querySelector('[data-skip-intro]')?.addEventListener('click', () => {
+			window.clearTimeout(timer);
+			endIntro();
+		});
+	}
+
+	// Reloj de Montevideo.
+	const clock = document.querySelector('[data-clock]');
+	if (clock) {
+		const fmt = new Intl.DateTimeFormat('es-UY', {
+			hour: '2-digit',
+			minute: '2-digit',
+			second: '2-digit',
+			hour12: false,
+			timeZone: 'America/Montevideo',
+		});
+		const tick = () => {
+			clock.textContent = fmt.format(new Date());
+		};
+		tick();
+		window.setInterval(tick, 1000);
+	}
+
+	// Manifiesto que se enciende al hacer scroll.
+	const manifesto = document.querySelector<HTMLElement>('[data-manifesto]');
+	const bar = document.querySelector<HTMLElement>('[data-progress]');
+	if (manifesto) {
+		const words = Array.from(manifesto.querySelectorAll<HTMLElement>('.word'));
+		let lastLit = -1;
+		let queued = false;
+		const update = () => {
+			queued = false;
+			const r = manifesto.getBoundingClientRect();
+			const vh = window.innerHeight || 800;
+			const p = Math.min(1, Math.max(0, (vh * 0.8 - r.top) / (r.height + vh * 0.25)));
+			const lit = Math.round(p * words.length);
+			if (bar) bar.style.transform = `scaleX(${p})`;
+			if (lit === lastLit) return;
+			words.forEach((w, i) => w.classList.toggle('lit', i < lit));
+			lastLit = lit;
+		};
+		const onScroll = () => {
+			if (!queued) {
+				queued = true;
+				requestAnimationFrame(update);
+			}
+		};
+		window.addEventListener('scroll', onScroll, { passive: true });
+		window.addEventListener('resize', onScroll);
+		update();
+	}
+
+	// Cursor propio: punto que invierte el color de lo que tiene debajo, y "go →" sobre links y botones.
+	const cursor = document.querySelector<HTMLElement>('.cursor');
+	if (cursor && window.matchMedia('(pointer: fine)').matches) {
+		root.classList.add('has-cursor');
+		window.addEventListener('mousemove', (e) => {
+			cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+			cursor.classList.add('visible');
+		});
+		document.addEventListener('mouseleave', () => cursor.classList.remove('visible'));
+		document.addEventListener('mouseover', (e) => {
+			const target = e.target as Element | null;
+			const link = target?.closest?.('a, button');
+			cursor.classList.toggle('go', !!link);
+			cursor.classList.toggle('on-accent', !!link?.closest('.btn-accent'));
+		});
+	}
+</script>
