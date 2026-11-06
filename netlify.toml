@@ -4,3 +4,24 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# Las páginas del sitio anterior ahora son secciones de la landing.
+[[redirects]]
+  from = "/servicios"
+  to = "/#servicios"
+  status = 301
+
+[[redirects]]
+  from = "/estudio"
+  to = "/#manifiesto"
+  status = 301
+
+[[redirects]]
+  from = "/trabajo/*"
+  to = "/#trabajo"
+  status = 301
+
+[[redirects]]
+  from = "/contacto"
+  to = "/#contacto"
+  status = 301

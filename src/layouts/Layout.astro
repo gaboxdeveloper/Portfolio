@@ -1,8 +1,6 @@
 ---
-import '@fontsource/archivo/400.css';
-import '@fontsource/archivo/500.css';
-import '@fontsource/archivo/600.css';
-import '@fontsource/archivo/800.css';
+import '@fontsource-variable/sora';
+import '@fontsource-variable/inter';
 import '../styles/global.css';
 
 export interface Props {
@@ -10,7 +8,7 @@ export interface Props {
 	description: string;
 }
 const { title, description } = Astro.props;
-const ogImage = new URL('/logo/rs-square.png', Astro.site).toString();
+const ogImage = new URL('/favicon.png', Astro.site).toString();
 ---
 
 <!doctype html>
@@ -18,19 +16,19 @@ const ogImage = new URL('/logo/rs-square.png', Astro.site).toString();
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/png" href="/logo/rs-square.png" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title} · RossyStudio</title>
+		<meta name="theme-color" content="#16195c" />
+		<title>{title}</title>
 		<meta name="description" content={description} />
-		<meta property="og:title" content={`${title} · RossyStudio`} />
+		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
 		<meta property="og:image" content={ogImage} />
 		<meta name="twitter:card" content="summary" />
+		<slot name="head" />
 	</head>
 	<body>
-		<main>
-			<slot />
-		</main>
+		<slot />
 	</body>
 </html>

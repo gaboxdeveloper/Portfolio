@@ -1,6 +1,6 @@
-# RossyStudio — sitio web
+# Ideago — sitio web
 
-Sitio institucional construido con [Astro](https://astro.build) + Tailwind CSS, a partir del handoff de diseño en [`design/handoff.md`](./design/handoff.md).
+Landing de Ideago (antes RossyStudio), estudio de producto digital. Construida con [Astro](https://astro.build), sin frameworks de UI: CSS propio y un script chico para las animaciones.
 
 ## Desarrollo local
 
@@ -18,26 +18,26 @@ npm run build
 npm run preview
 ```
 
-## Deploy en Netlify
+## Deploy
 
-1. Conectá este repositorio en Netlify (New site from Git).
-2. Build command: `npm run build` — Publish directory: `dist` (ya configurado en `netlify.toml`).
-3. Una vez deployado, andá a **Domain settings → Add a domain** y seguí las instrucciones para apuntar tu dominio propio (registros DNS `A`/`CNAME` según indique Netlify).
+Netlify (configurado en `netlify.toml`): build `npm run build`, publica `dist`. Las rutas del sitio anterior (`/servicios`, `/estudio`, `/trabajo/*`, `/contacto`) redirigen a las secciones de la landing.
 
-## Contenido pendiente (placeholders a reemplazar)
+## Qué tiene la landing
 
-- **Email de contacto**: `hola@rossystudio.com` en `src/pages/contacto.astro`.
-- **Año de Ciberseguridad**: `2027`, constante `anioCiber` en `src/pages/index.astro` y `src/pages/estudio.astro`.
-- **Capturas de la app eTool**: marcos placeholder en `src/pages/index.astro` (sección eTool) y `src/pages/trabajo/etool.astro` (galería). Reemplazar los `<ImageFrame>` por `<img>` reales.
-- **Retrato del estudio**: placeholder en `src/pages/estudio.astro`.
-- **Envío real del formulario de contacto**: hoy el formulario de `src/pages/contacto.astro` solo simula el envío en el navegador (estado "enviado" con JS). Falta conectarlo a un proveedor (Formspree, Resend, etc.) cuando lo decidan.
+- **Intro animada** (idea → diseño → código → go.), una vez por sesión y con botón para saltarla. No se muestra si el sistema pide menos movimiento.
+- **Manifiesto que se enciende** palabra por palabra al hacer scroll.
+- **Cursor propio** (solo con mouse): punto que invierte el color de lo que tiene debajo; sobre links y botones se agranda y dice "go →" (azul marino sobre botones naranjas).
+- **Formulario de contacto** con Netlify Forms (`name="contacto"`), redirige a `/gracias`.
+
+## Pendiente
+
+- Activar la detección de formularios en Netlify (Site configuration → Forms) y configurar a qué email llegan los avisos.
+- Email de contacto visible y link de Instagram (se sacaron hasta tenerlos).
+- Logo definitivo (hoy `public/logo/ideago.png`, provisorio) y dominio de Ideago.
 
 ## Estructura
 
-- `src/layouts/Layout.astro` — layout base (meta, fuentes, fondo).
-- `src/components/` — Header, Footer, BrandMark y bloques compartidos (fila de datos, marco de imagen, CTA de cierre).
-- `src/pages/` — Home (`index.astro`), Servicios, Caso eTool (`trabajo/etool.astro`), Estudio, Contacto.
-
-## Créditos de diseño
-
-Basado en el handoff [`design/handoff.md`](./design/handoff.md) (tokens de color, tipografía Archivo, grillas y estados definidos ahí).
+- `src/layouts/Layout.astro` — layout base (meta, fuentes Sora + Inter).
+- `src/styles/global.css` — colores, fondo y estilos de las páginas simples.
+- `src/pages/index.astro` — la landing (marcado, estilos y script).
+- `src/pages/gracias.astro`, `src/pages/404.astro`.
